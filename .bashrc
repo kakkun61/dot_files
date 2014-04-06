@@ -84,7 +84,7 @@ fi
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
+#alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -153,4 +153,8 @@ preghc 7.6.3
 
 # Chromium on Virtual Mahine
 alias chromium-browser='chromium-browser --blacklist-accelerated-compositing'
+
+# bashmarks
+# https://github.com/huyng/bashmarks
+source ${HOME}/.local/bin/bashmarks.sh
 
