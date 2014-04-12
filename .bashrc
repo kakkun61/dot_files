@@ -109,51 +109,6 @@ fi
 # PS1
 PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]$(__git_ps1 " %s")\[\e[0m\]\n\$ '
 
-# Haskell
-prepath() {
-    if [ ! -d "$1" ]; then
-        echo 1>&2 "$1 is not a directory."
-        return 1
-    fi
-    dir=$(cd $1; /bin/pwd)
-    if echo ":$PATH:" | grep -q ":$dir:"; then
-        :
-    else
-        PATH="$dir:$PATH"
-    fi
-}
-
-preghc() {
-    local binpath
-    for i in /usr/local/ghc/ghc-$1*/bin/ghc; do
-        if ! [ -x $i ]; then
-            echo 1>&2 "Not found or not executable: $i"
-            return 1
-        fi
-        local dir=$(dirname $i)
-        echo $dir | grep HEAD >/dev/null 2>&1
-        if [ $? -eq 0 ] && [ -z "$1" ]; then
-            continue
-        fi
-        binpath="$dir"
-    done
-    els=""
-    for el in $(echo "$PATH" | sed -e 's/:/ /g'); do
-        case "$el" in
-            *ghc*) : ;;
-            *) els="$els $el";;
-        esac
-    done
-    PATH=$(echo $els | sed -e 's/ /:/g' | sed -e 's/^://')
-    echo 1>&2 $(dirname $binpath)
-    prepath $binpath
-}
-
-preghc 7.6.3
-
-# Chromium on Virtual Mahine
-alias chromium-browser='chromium-browser --blacklist-accelerated-compositing'
-
 # bashmarks
 # https://github.com/huyng/bashmarks
 source ${HOME}/.local/bin/bashmarks.sh
