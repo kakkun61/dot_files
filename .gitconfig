@@ -1,0 +1,9 @@
+[user]
+	name = Kazuki Okamoto
+	email = kazuki.okamoto@kakkun61.com
+[color]
+	ui = auto
+[core]
+	editor = nano
+	eof = lf
+	autocrlf = false
