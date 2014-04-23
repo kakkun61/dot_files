@@ -7,3 +7,5 @@
 	editor = nano
 	eof = lf
 	autocrlf = false
+[alias]
+	log-graph = log --graph --decorate --abbrev-commit --all
