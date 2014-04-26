@@ -9,3 +9,5 @@
 	autocrlf = false
 [alias]
 	log-graph = log --graph --decorate --abbrev-commit --all
+[push]
+	default = upstream
