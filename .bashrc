@@ -37,28 +37,13 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# PS1
+if [ type > /dev/null 2>&1 ]
+then
+    PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]$(__git_ps1 " %s")\[\e[0m\]\n\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
 fi
-unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -106,12 +91,52 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# PS1
-PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]$(__git_ps1 " %s")\[\e[0m\]\n\$ '
+# Haskell
+prepath() {
+    if [ ! -d "$1" ]; then
+        echo 1>&2 "$1 is not a directory."
+        return 1
+    fi
+    dir=$(cd $1; /bin/pwd)
+    if echo ":$PATH:" | grep -q ":$dir:"; then
+        :
+    else
+        PATH="$dir:$PATH"
+    fi
+}
+
+preghc() {
+    local binpath
+    for i in /usr/local/ghc/ghc-$1*/bin/ghc; do
+        if ! [ -x $i ]; then
+            echo 1>&2 "Not found or not executable: $i"
+            return 1
+        fi
+        local dir=$(dirname $i)
+        echo $dir | grep HEAD >/dev/null 2>&1
+        if [ $? -eq 0 ] && [ -z "$1" ]; then
+            continue
+        fi
+        binpath="$dir"
+    done
+    els=""
+    for el in $(echo "$PATH" | sed -e 's/:/ /g'); do
+        case "$el" in
+            *ghc*) : ;;
+            *) els="$els $el";;
+        esac
+    done
+    PATH=$(echo $els | sed -e 's/ /:/g' | sed -e 's/^://')
+    echo 1>&2 $(dirname $binpath)
+    prepath $binpath
+}
 
 # bashmarks
 # https://github.com/huyng/bashmarks
-source ${HOME}/.local/bin/bashmarks.sh
+if [ -f ${HOME}/.local/bin/bashmarks.sh ]
+then
+    source ${HOME}/.local/bin/bashmarks.sh
+fi
 
 # SSH
 eval `ssh-agent`
