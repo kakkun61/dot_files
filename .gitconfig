@@ -11,3 +11,5 @@
 	log-graph = log --graph --decorate --abbrev-commit --all
 [push]
 	default = upstream
+[help]
+	autocorrect = 1
