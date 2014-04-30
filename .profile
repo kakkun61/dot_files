@@ -22,8 +22,7 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # Haskell
-export PATH=${HOME}/.cabal/bin:$PATH
-
-# SandS
-xmodmap -e 'keycode 255=space'; xmodmap -e 'keycode 65=Shift_L'; xcape -e '#65=space'
-
+if [ -d "${HOME}/.cabal" ]
+then
+    export PATH=${HOME}/.cabal/bin:$PATH
+fi
