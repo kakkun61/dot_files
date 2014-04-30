@@ -138,3 +138,6 @@ then
     source ${HOME}/.local/bin/bashmarks.sh
 fi
 
+# Chromium on Virtual Box
+# prevent hardware accelaration to avoid a bug
+alias chromium-browser='chromium-browser --blacklist-accelerated-compositing'
