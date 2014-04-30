@@ -20,3 +20,9 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# Haskell
+if [ -d "${HOME}/.cabal" ]
+then
+    export PATH=${HOME}/.cabal/bin:$PATH
+fi
