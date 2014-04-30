@@ -24,6 +24,13 @@ fi
 # Haskell
 export PATH=${HOME}/.cabal/bin:$PATH
 
-# SandS
-xmodmap -e 'keycode 255=space'; xmodmap -e 'keycode 65=Shift_L'; xcape -e '#65=space'
+# GAE/Go
+#export PATH=$HOME/Programming/go_appengine:$PATH
 
+# Go
+export GOROOT=/usr/local/go
+export PATH=$GOROOT/bin:$PATH
+
+# Android
+export ANDROID_HOME=$HOME/Applications/android-sdk-macosx
+export PATH=$ANDROID_HOME/platform-tools:$PATH

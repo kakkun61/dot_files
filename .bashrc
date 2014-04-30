@@ -106,6 +106,11 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# Git
+source /usr/share/git-core/git-completion.bash
+source /usr/share/git-core/git-prompt.sh
+source $HOME/Programming/hub/etc/hub.bash_completion.sh
+
 # PS1
 PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]$(__git_ps1 " %s")\[\e[0m\]\n\$ '
 
@@ -157,4 +162,3 @@ alias chromium-browser='chromium-browser --blacklist-accelerated-compositing'
 # bashmarks
 # https://github.com/huyng/bashmarks
 source ${HOME}/.local/bin/bashmarks.sh
-
