@@ -22,7 +22,10 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # Haskell
-export PATH=${HOME}/.cabal/bin:$PATH
+if [ -d "${HOME}/.cabal" ]
+then
+    export PATH=${HOME}/.cabal/bin:$PATH
+fi
 
 # GAE/Go
 #export PATH=$HOME/Programming/go_appengine:$PATH
