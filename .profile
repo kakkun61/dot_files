@@ -12,7 +12,7 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
 fi
 
@@ -37,3 +37,8 @@ export PATH=$GOROOT/bin:$PATH
 # Android
 export ANDROID_HOME=$HOME/Applications/android-sdk-macosx
 export PATH=$ANDROID_HOME/platform-tools:$PATH
+
+# Bash Completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
