@@ -76,7 +76,8 @@ alias la='ls -A'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='if [ $? = 0 ]; then; terminal-notifier -title "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')" -message "Success"; else; terminal-notifier -title "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')" -message "Failure"; fi'
+# prepare "brew install terminal-notifier"
+alias alert='if [ $? = 0 ]; then terminal-notifier -title "$(history | tail -n1 | sed -E '"'"'s/^ *[0-9]+ *//;s/ *[;&|] *alert$//'"'"')" -message "Success"; else terminal-notifier -title "$(history | tail -n1 | sed -E '"'"'s/^ *[0-9]+ *//;s/ *[;&|] *alert$//'"'"')" -message "Failure"; fi'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
