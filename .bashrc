@@ -74,7 +74,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 #alias l='ls -CF'
 
-. ./alert-mac-os-x/alert.sh
+. "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/alert-mac-os-x/alert.sh
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
