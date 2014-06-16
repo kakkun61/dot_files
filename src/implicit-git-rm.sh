@@ -1,11 +1,31 @@
 #!/bin/sh
 
-for path in $*
+git_tracked() {
+    git ls-files --error-unmatch "$arg" >/dev/null 2>&1
+}
+
+opts=()
+args=()
+endopt=false
+for arg in $*
 do
-    if git ls-files --error-unmatch ${path} >/dev/null 2>&1
+    if $endopt || echo $arg | grep -Evq '^-'
     then
-        git rm ${path}
+        args=("${args[@]}" "$arg")
     else
-        rm ${path}
+        opts=("${opts[@]}" "$arg")
+        case arg in
+            '--') endopt=true;;
+        esac
+    fi
+done
+
+for arg in "${args[@]}"
+do
+    if git_tracked
+    then
+        git rm "${opts[@]}" "$arg"
+    else
+        rm "${opts[@]}" "$arg"
     fi
 done
