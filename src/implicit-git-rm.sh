@@ -26,6 +26,6 @@ do
     then
         git rm "${opts[@]}" "$arg"
     else
-        rm "${opts[@]}" "$arg"
+        /bin/rm "${opts[@]}" "$arg"
     fi
 done

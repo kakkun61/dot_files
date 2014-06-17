@@ -22,6 +22,6 @@ args.each { |arg|
   if git_tracked? arg then
     `git rm #{optstr} #{arg}`
   else
-    `rm #{optstr} #{arg}`
+    `/bin/rm #{optstr} #{arg}`
   end
 }
