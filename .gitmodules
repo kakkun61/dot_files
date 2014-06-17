@@ -1,3 +1,6 @@
 [submodule "alert-mac-os-x"]
 	path = alert-mac-os-x
 	url = git@github.com:kakkun61/alert-mac-os-x.git
+[submodule "Implicit-git-rm"]
+	path = Implicit-git-rm
+	url = git@github.com:kakkun61/Implicit-git-rm.git

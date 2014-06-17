@@ -138,3 +138,5 @@ if [ -f ${HOME}/.local/bin/bashmarks.sh ]
 then
     source ${HOME}/.local/bin/bashmarks.sh
 fi
+
+alias rm="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/Implicit-git-rm/src/implicit-git-rm.sh
