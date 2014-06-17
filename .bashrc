@@ -138,3 +138,7 @@ then
     source ${HOME}/.local/bin/bashmarks.sh
 fi
 
+<<<<<<< Updated upstream
+=======
+alias rm="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/Implicit-git-rm/src/implicit-git-rm.sh
+>>>>>>> Stashed changes
