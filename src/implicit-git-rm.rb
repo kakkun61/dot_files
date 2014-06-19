@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 def git_tracked? path
   system "git ls-files --error-unmatch #{path} >/dev/null 2>&1"
 end
