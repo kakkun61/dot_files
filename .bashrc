@@ -37,11 +37,6 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-# Git
-source /usr/share/git-core/git-completion.bash
-source /usr/share/git-core/git-prompt.sh
-source $HOME/Programming/hub/etc/hub.bash_completion.sh
-
 # PS1
 if type __git_ps1 > /dev/null 2>&1
 then
