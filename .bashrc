@@ -37,14 +37,6 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-# PS1
-if type __git_ps1 > /dev/null 2>&1
-then
-    PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]$(__git_ps1 " %s")\[\e[0m\]\n\$ '
-else
-    PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
-fi
-
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -83,8 +75,16 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+if [ -f `brew --prefix`/etc/bash_completion ] && ! shopt -oq posix; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+# PS1
+if type __git_ps1 > /dev/null 2>&1
+then
+    PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\e[36m\]$(__git_ps1 " %s")\[\e[0m\]\n\$ '
+else
+    PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
 fi
 
 # Haskell
