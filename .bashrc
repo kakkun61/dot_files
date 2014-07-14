@@ -131,6 +131,44 @@ preghc() {
     prepath $binpath
 }
 
+preghc 7.6.3 2> /dev/null
+
+# Java
+prejdk () 
+{ 
+    local binpath;
+    for i in /usr/local/jdk/jdk$1*/bin/javac;
+    do
+        if ! [ -x $i ]; then
+            echo "Not found or not executable: $i" 1>&2;
+            return 1;
+        fi;
+        local dir=$(dirname $i);
+        echo $dir | grep --color=auto HEAD > /dev/null 2>&1;
+        if [ $? -eq 0 ] && [ -z "$1" ]; then
+            continue;
+        fi;
+        binpath="$dir";
+    done;
+    els="";
+    for el in $(echo "$PATH" | sed -e 's/:/ /g');
+    do
+        case "$el" in 
+            *jdk*)
+                :
+            ;;
+            *)
+                els="$els $el"
+            ;;
+        esac;
+    done;
+    PATH=$(echo $els | sed -e 's/ /:/g' | sed -e 's/^://');
+    echo $(dirname $binpath) 1>&2;
+    prepath $binpath
+}
+
+prejdk 1.8.0_05 2> /dev/null
+
 # bashmarks
 # https://github.com/huyng/bashmarks
 if [ -f ${HOME}/.local/bin/bashmarks.sh ]
