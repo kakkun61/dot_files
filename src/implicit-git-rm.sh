@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 git_tracked() {
     git ls-files --error-unmatch "$arg" >/dev/null 2>&1
