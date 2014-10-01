@@ -31,7 +31,9 @@ fi
 #export PATH=$HOME/Programming/go_appengine:$PATH
 
 # Go
-export GOROOT=/usr/local/go
+# Using "launchctl" is for an IntelliJ IDEA's bug.
+launchctl setenv GOROOT /usr/local/go
+launchctl setenv GOPATH /Users/okamoto-k/go
 export PATH=$GOROOT/bin:$PATH
 
 # Android
