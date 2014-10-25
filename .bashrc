@@ -107,7 +107,7 @@ prepath() {
 
 preghc() {
     local binpath
-    for i in /usr/local/ghc/ghc-$1*/bin/ghc; do
+    for i in ${HOME}/Applications/ghc/ghc-$1*/bin/ghc; do
         if ! [ -x $i ]; then
             echo 1>&2 "Not found or not executable: $i"
             return 1
