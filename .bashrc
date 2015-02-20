@@ -143,4 +143,3 @@ then
 fi
 
 alias rm="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/Implicit-git-rm/src/implicit-git-rm.sh
-alias cot="open -a CotEditor"
