@@ -138,5 +138,3 @@ then
     source ${HOME}/.local/bin/bashmarks.sh
 fi
 
-# SSH
-eval `ssh-agent`
