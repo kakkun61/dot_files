@@ -45,6 +45,10 @@ then
     # Java
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
     export PATH=$JAVA_HOME/bin:$PATH
+elif linux
+then
+    # SandS
+    xmodmap -e 'keycode 255=space'; xmodmap -e 'keycode 65=Shift_L'; xcape -e '#65=space'
 else
     # SSH
     eval `ssh-agent`

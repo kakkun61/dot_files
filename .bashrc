@@ -13,6 +13,9 @@ mac() {
 cygwin() {
     return `echo $OS | grep CYGWIN`
 }
+linux() {
+    return [ $OS = Linux ]
+}
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -172,3 +175,7 @@ then
 fi
 
 alias rm="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/implicit-git-rm/src/implicit-git-rm.sh
+
+# Chromium on Virtual Box
+# prevent hardware accelaration to avoid a bug
+#alias chromium-browser='chromium-browser --blacklist-accelerated-compositing'
