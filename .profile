@@ -27,5 +27,25 @@ then
     export PATH=${HOME}/.cabal/bin:$PATH
 fi
 
-# SSH
-eval `ssh-agent`
+if mac
+then
+    # GAE/Go
+    #export PATH=$HOME/Programming/go_appengine:$PATH
+
+    # Go
+    # Using "launchctl" is for an IntelliJ IDEA's bug.
+    launchctl setenv GOROOT /usr/local/go
+    launchctl setenv GOPATH /Users/okamoto-k/go
+    export PATH=$GOROOT/bin:$PATH
+
+    # Android
+    export ANDROID_HOME=$HOME/Applications/android-sdk-macosx
+    export PATH=$ANDROID_HOME/platform-tools:$PATH
+
+    # Java
+    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+    export PATH=$JAVA_HOME/bin:$PATH
+else
+    # SSH
+    eval `ssh-agent`
+fi
