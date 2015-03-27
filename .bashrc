@@ -6,15 +6,14 @@
 [ -z "$PS1" ] && return
 
 # Chrek OS
-OS=`uname`
 mac() {
-    return [ $OS = Darwin ]
+    [ `uname` = Darwin ]
 }
 cygwin() {
-    return `echo $OS | grep CYGWIN`
+    uname | grep CYGWIN
 }
 linux() {
-    return [ $OS = Linux ]
+    [ `uname` = Linux ]
 }
 
 # don't put duplicate lines or lines starting with space in the history.
