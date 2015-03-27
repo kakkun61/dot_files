@@ -40,6 +40,8 @@ export PATH=$GOROOT/bin:$PATH
 export ANDROID_HOME=$HOME/Applications/android-sdk-macosx
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 
+export PATH=/Users/okamoto-k/Applications/android-ndk-r10d:$PATH
+
 # Bash Completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
