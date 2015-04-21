@@ -178,3 +178,10 @@ alias rm="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/implicit-git-rm/src
 # Chromium on Virtual Box
 # prevent hardware accelaration to avoid a bug
 #alias chromium-browser='chromium-browser --blacklist-accelerated-compositing'
+
+# The Fuck
+# https://github.com/nvbn/thefuck
+if which thefuck
+then
+    alias fuck='$(thefuck $(fc -ln -1))'
+fi
