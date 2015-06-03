@@ -34,8 +34,12 @@ then
 
     # Go
     # Using "launchctl" is for an IntelliJ IDEA's bug.
-    launchctl setenv GOROOT /usr/local/go
-    launchctl setenv GOPATH /Users/okamoto-k/go
+    GOROOT=/usr/local/go
+    GOPATH=/User/okamoto-k/go
+    launchctl setenv GOROOT $GOROOT
+    launchctl setenv GOPATH $GOPATH
+    export GOROOT
+    export GOPATH
     export PATH=$GOROOT/bin:$PATH
 
     # Android
