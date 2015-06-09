@@ -15,6 +15,9 @@
 	autocorrect = 1
 
 [pager]
+	# diff-highlight command is there
+	#  - https://github.com/git/git/tree/master/contrib/diff-highlight
+	#  - /usr/local/share/git-core/contrib/diff-highlight
 	log = diff-highlight | less
 	show = diff-highlight | less
 	diff = diff-highlight | less
