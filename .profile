@@ -27,6 +27,11 @@ then
     export PATH=${HOME}/.cabal/bin:$PATH
 fi
 
+if [ -d "$HOME/.local/bin" ]
+then
+    export PATH=$HOME/.local/bin:$PATH
+fi
+
 if mac
 then
     # GAE/Go
