@@ -7,7 +7,7 @@ git_tracked() {
 opts=()
 args=()
 endopt=false
-for arg in $*
+for arg in "$@"
 do
     if $endopt || echo $arg | grep -Evq '^-'
     then
