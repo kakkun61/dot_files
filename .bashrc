@@ -192,3 +192,10 @@ if type thefuck > /dev/null 2>&1
 then
     alias fuck='$(thefuck $(fc -ln -1))'
 fi
+
+# direnv
+# http://direnv.net/
+if type direnv > /dev/null 2>&1
+then
+    eval "$(direnv hook bash)"
+fi
