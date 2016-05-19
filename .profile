@@ -65,6 +65,14 @@ then
     export PATH=/Developer/NVIDIA/CUDA-6.5/bin:$PATH
     export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-6.5/lib:$DYLD_LIBRARY_PATH
     export LD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-6.5/lib:$LD_LIBRARY_PATH
+
+    # Cot Editor
+    if [ -d /Applications/CotEditor.app ]
+    then
+        export PATH=/Applications/CotEditor.app/Contents/SharedSupport/bin:$PATH
+    else
+        echo Cot Editor is not installed
+    fi
 elif linux
 then
     # SandS
