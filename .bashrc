@@ -190,7 +190,7 @@ alias rm="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/implicit-git-rm/imp
 # https://github.com/nvbn/thefuck
 if type thefuck > /dev/null 2>&1
 then
-    alias fuck='$(thefuck $(fc -ln -1))'
+    eval "$(thefuck --alias)"
 fi
 
 # direnv
