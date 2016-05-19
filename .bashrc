@@ -199,3 +199,9 @@ if type direnv > /dev/null 2>&1
 then
     eval "$(direnv hook bash)"
 fi
+
+# add UTF-8 BOM
+if type nkf > /dev/null 2>&1
+then
+    alias add-bom='nkf --overwrite --oc=UTF-8-BOM'
+fi
