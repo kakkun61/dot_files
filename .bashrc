@@ -205,3 +205,6 @@ if type nkf > /dev/null 2>&1
 then
     alias add-bom='nkf --overwrite --oc=UTF-8-BOM'
 fi
+
+# Yi Editor
+alias yi='stack exec -- yi'
