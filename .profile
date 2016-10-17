@@ -79,7 +79,12 @@ then
 elif linux
 then
     # SandS
-    xmodmap -e 'keycode 255=space'; xmodmap -e 'keycode 65=Shift_L'; xcape -e '#65=space'
+    if type xmodmap > /dev/null 2>&1 && type xcape > /dev/null 2>&1
+    then
+        xmodmap -e 'keycode 255=space'; xmodmap -e 'keycode 65=Shift_L'; xcape -e '#65=space'
+    else
+        echo "`xmaodmap' nor `xcape' is not installed"
+    fi
 else
     # SSH
     eval `ssh-agent`
