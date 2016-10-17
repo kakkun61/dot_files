@@ -73,6 +73,9 @@ then
     else
         echo Cot Editor is not installed
     fi
+
+    # Mono
+    export MONO_GAC_PREFIX="/usr/local"
 elif linux
 then
     # SandS
