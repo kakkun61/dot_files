@@ -40,7 +40,7 @@ then
     # Go
     # Using "launchctl" is for an IntelliJ IDEA's bug.
     GOROOT=/usr/local/go
-    GOPATH=/User/okamoto-k/go
+    GOPATH=/Users/okamoto-k/go
     launchctl setenv GOROOT $GOROOT
     launchctl setenv GOPATH $GOPATH
     export GOROOT
