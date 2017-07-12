@@ -8,7 +8,7 @@
 	eof = lf
 	autocrlf = false
 [alias]
-	log-graph = log --graph --decorate --abbrev-commit --all
+	log-graph = log --graph --decorate --abbrev-commit
 [push]
 	default = upstream
 [help]
