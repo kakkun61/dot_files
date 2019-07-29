@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# Chrek OS
+# Check OS
 UNAME=$(uname)
 [ $UNAME = Darwin ]
 MAC=$?
@@ -93,7 +93,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 #alias l='ls -CF'
 
-# Add an "alert" alias for long running commands.  Use like so:
+# Add an "alert" alias for long running commands. Use like so:
 #   sleep 10; alert
 if mac
 then
@@ -133,46 +133,6 @@ else
     PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
 fi
 
-# Haskell
-prepath() {
-    if [ ! -d "$1" ]; then
-        echo 1>&2 "$1 is not a directory."
-        return 1
-    fi
-    dir=$(cd $1; /bin/pwd)
-    if echo ":$PATH:" | grep -q ":$dir:"; then
-        :
-    else
-        PATH="$dir:$PATH"
-    fi
-}
-
-preghc() {
-    local binpath
-    for i in /usr/local/ghc/ghc-$1*/bin/ghc; do
-        if ! [ -x $i ]; then
-            echo 1>&2 "Not found or not executable: $i"
-            return 1
-        fi
-        local dir=$(dirname $i)
-        echo $dir | grep HEAD >/dev/null 2>&1
-        if [ $? -eq 0 ] && [ -z "$1" ]; then
-            continue
-        fi
-        binpath="$dir"
-    done
-    els=""
-    for el in $(echo "$PATH" | sed -e 's/:/ /g'); do
-        case "$el" in
-            *ghc*) : ;;
-            *) els="$els $el";;
-        esac
-    done
-    PATH=$(echo $els | sed -e 's/ /:/g' | sed -e 's/^://')
-    echo 1>&2 $(dirname $binpath)
-    prepath $binpath
-}
-
 # bashmarks
 # https://github.com/huyng/bashmarks
 if [ -f ${HOME}/.local/bin/bashmarks.sh ]
@@ -205,6 +165,3 @@ if type nkf > /dev/null 2>&1
 then
     alias add-bom='nkf --overwrite --oc=UTF-8-BOM'
 fi
-
-# Yi Editor
-alias yi='stack exec -- yi'
