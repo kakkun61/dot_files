@@ -23,6 +23,8 @@ linux() {
     return $LINUX
 }
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -97,7 +99,7 @@ alias la='ls -A'
 #   sleep 10; alert
 if mac
 then
-    . "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/alert-mac-os-x/alert.sh
+    . "$DIR"/alert-mac-os-x/alert.sh
 else
     alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 fi
@@ -135,10 +137,7 @@ fi
 
 # bashmarks
 # https://github.com/huyng/bashmarks
-if [ -f ${HOME}/.local/bin/bashmarks.sh ]
-then
-    source ${HOME}/.local/bin/bashmarks.sh
-fi
+source "$DIR"/bashmarks/bashmarks.sh
 
 # Chromium on Virtual Box
 # prevent hardware accelaration to avoid a bug
@@ -149,6 +148,8 @@ fi
 if type thefuck > /dev/null 2>&1
 then
     eval "$(thefuck --alias)"
+else
+    alias fuck='echo -e "thefuck is not installed\nsee https://github.com/nvbn/thefuck"'
 fi
 
 # direnv
@@ -162,4 +163,6 @@ fi
 if type nkf > /dev/null 2>&1
 then
     alias add-bom='nkf --overwrite --oc=UTF-8-BOM'
+else
+    alias add-bom='echo nkf is not installed'
 fi

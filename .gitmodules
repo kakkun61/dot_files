@@ -7,3 +7,6 @@
 [submodule ".spacemacs.d/hhp"]
 	path = .spacemacs.d/hhp
 	url = git@github.com:kazu-yamamoto/hhp.git
+[submodule "bashmarks"]
+	path = bashmarks
+	url = git@github.com:huyng/bashmarks.git
