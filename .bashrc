@@ -140,8 +140,6 @@ then
     source ${HOME}/.local/bin/bashmarks.sh
 fi
 
-alias rm="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"/implicit-git-rm/implicit-git-rm.sh
-
 # Chromium on Virtual Box
 # prevent hardware accelaration to avoid a bug
 #alias chromium-browser='chromium-browser --blacklist-accelerated-compositing'
