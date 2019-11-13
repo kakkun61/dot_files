@@ -321,6 +321,7 @@ you should place your code here."
   (setq auto-save-timeout 1)
 
   (setq hhp-debug t)
+  (setq hhp-display-error 'minibuffer)
   (add-to-list 'load-path "~/.spacemacs.d/hhp/elisp")
   (autoload 'hhp-init "hhp" nil t)
   (autoload 'hhp-debug "hhp" nil t)
