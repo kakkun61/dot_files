@@ -40,6 +40,7 @@ values."
      csv
      emacs-lisp
      haskell
+     rust
      helm
      markdown
      sql
