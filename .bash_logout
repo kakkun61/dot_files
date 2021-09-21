@@ -1,6 +1,2 @@
-if cygwin
-then
-    # SSH
-    eval `ssh-agent -k`
-fi
-
+# SSH
+eval "$(ssh-agent -k)"
