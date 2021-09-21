@@ -1,12 +1,3 @@
-[submodule ".spacemacs.d/git-complete"]
-	path = .spacemacs.d/git-complete
-	url = git@github.com:zk-phi/git-complete.git
-[submodule ".spacemacs.d/volatile-highlights.el"]
-	path = .spacemacs.d/volatile-highlights.el
-	url = git@github.com:k-talo/volatile-highlights.el.git
-[submodule ".spacemacs.d/hhp"]
-	path = .spacemacs.d/hhp
-	url = git@github.com:kazu-yamamoto/hhp.git
 [submodule "bashmarks"]
 	path = bashmarks
 	url = git@github.com:huyng/bashmarks.git
