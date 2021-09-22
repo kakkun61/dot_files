@@ -23,7 +23,11 @@ linux() {
     return $LINUX
 }
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -h "${BASH_SOURCE[0]}" ] # is link?
+then
+    DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -113,7 +117,7 @@ then
         source `brew --prefix`/etc/bash_completion
     fi
 else
-    if [ -f /etc/bash_completion ] && ! shopt -oq posix;
+    if [ -f /etc/bash_completion ] && ! shopt -oq posix
     then
         source /etc/bash_completion
     fi
