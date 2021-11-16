@@ -19,7 +19,7 @@ setup_terminal
 
 setup_dircolors
 
-setup_bashmarks
+setup_bashmarks "$dot_files"
 
 setup_fuck
 

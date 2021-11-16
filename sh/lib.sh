@@ -51,7 +51,7 @@ setup_dircolors() {
 }
 
 setup_bashmarks() {
-    . "../lib/bashmarks/bashmarks.sh"
+    . "$1/lib/bashmarks/bashmarks.sh"
 }
 
 setup_fuck() {
