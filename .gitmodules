@@ -1,6 +1,6 @@
-[submodule "bashmarks"]
-	path = bashmarks
+[submodule "lib/bashmarks"]
+	path = lib/bashmarks
 	url = git@github.com:huyng/bashmarks.git
-[submodule "poshdotenv"]
-	path = poshdotenv
+[submodule "lib/poshdotenv"]
+	path = lib/poshdotenv
 	url = git@github.com:stopthatastronaut/poshdotenv.git

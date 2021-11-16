@@ -1,0 +1,8 @@
+set -o errexit -o pipefail
+
+# dotfiles リポジトリーのディレクトリーを指定する
+dot_files=.
+
+source "$dot_files/sh/lib.sh"
+source "$dot_files/bash/lib.bash"
+stop_ssh_agent

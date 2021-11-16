@@ -1,0 +1,34 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+set -o errexit -o pipefail
+
+# dotfiles リポジトリーのディレクトリーを指定する
+dot_files=.
+
+source "$dot_files/sh/lib.sh"
+source "$dot_files/bash/lib.bash"
+
+setup_nix
+
+setup_less
+
+setup_terminal
+
+setup_dircolors
+
+setup_bashmarks
+
+setup_fuck
+
+setup_history
+
+setup_ls
+
+setup_shellcheck
+
+setup_direnv
