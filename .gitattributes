@@ -1,0 +1,5 @@
+*                      text=auto
+
+.bash_logout.example   text       linguist-language=bash
+.bash_profile.example  text       linguist-language=bash
+.bashrc.example        text       linguist-language=bash
