@@ -8,8 +8,6 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-set -o errexit -o pipefail
-
 # dotfiles リポジトリーのディレクトリーを指定する
 dot_files=.
 
