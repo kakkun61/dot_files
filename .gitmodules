@@ -4,3 +4,6 @@
 [submodule "lib/poshdotenv"]
 	path = lib/poshdotenv
 	url = git@github.com:stopthatastronaut/poshdotenv.git
+[submodule "lib/wsl-open"]
+	path = lib/wsl-open
+	url = git@gist.github.com:5de802a79a9aea821eac4d05a1e75b19.git
