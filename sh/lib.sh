@@ -57,3 +57,7 @@ setup_bashmarks() {
 setup_fuck() {
     eval "$(thefuck --alias)"
 }
+
+setup_gpg() {
+    export GPG_TTY=$(tty)
+}

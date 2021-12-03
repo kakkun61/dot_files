@@ -22,4 +22,6 @@ setup_sands
 
 start_ssh_agent
 
+setup_gpg
+
 export PATH
