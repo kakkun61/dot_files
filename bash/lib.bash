@@ -30,3 +30,7 @@ setup_shellcheck() {
 setup_direnv() {
     eval "$(direnv hook bash)"
 }
+
+setup_git() {
+    export GIT_PS1_SHOWDIRTYSTATE=1
+}

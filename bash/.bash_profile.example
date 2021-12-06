@@ -24,4 +24,6 @@ start_ssh_agent
 
 setup_gpg
 
+setup_git
+
 export PATH
