@@ -12,6 +12,7 @@
 dot_files=.
 
 source "$dot_files/sh/lib.sh"
+source "$dot_files/bash/lib.bash"
 
 source "$HOME/.bashrc"
 
