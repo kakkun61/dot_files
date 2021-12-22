@@ -26,6 +26,7 @@ stop_ssh_agent() {
 }
 
 setup_nix() {
+    # shellcheck source=/dev/null
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 }
 
@@ -52,6 +53,7 @@ setup_dircolors() {
 }
 
 setup_bashmarks() {
+    # shellcheck source=/dev/null
     . "$1/lib/bashmarks/bashmarks.sh"
 }
 

@@ -11,11 +11,14 @@
 # dotfiles リポジトリーのディレクトリーを指定する
 dot_files=.
 
+# shellcheck source=/dev/null
 source "$dot_files/sh/lib.sh"
+# shellcheck source=/dev/null
 source "$dot_files/bash/lib.bash"
 
 add_local_bin
 
+# shellcheck source=/dev/null
 source "$HOME/.bashrc"
 
 # X 環境なら

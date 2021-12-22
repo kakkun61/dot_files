@@ -13,6 +13,10 @@ function Import-DotenvModule {
 }
 
 function Get-Prompt {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Scope = 'Function', Target = 'Get-Prompt', Justification = 'Prompt is always host')]
+
+    param ()
+
     [ScriptBlock] $prompt = {
         $realLASTEXITCODE = $LASTEXITCODE
         $now = get-date -format "HH:mm:ss"
@@ -33,8 +37,4 @@ function Get-Prompt {
 
 function Initialize-Python {
     $Env:PYTHONIOENCODING = "utf-8"
-}
-
-function Initialize-Fuck {
-    Invoke-Expression "$(thefuck --alias)"
 }

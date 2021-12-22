@@ -1,3 +1,7 @@
+﻿[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingInvokeExpression', '', Justification = 'For the fuck')]
+
+param ()
+
 # dotfiles リポジトリーのディレクトリーを指定する
 $dotFiles = '.'
 
