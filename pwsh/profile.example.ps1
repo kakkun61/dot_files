@@ -18,8 +18,6 @@ Start-SshAgent -Quiet
 
 Initialize-Chocolatey
 
-Initialize-DotenvModule
-
 Initialize-Python
 
 # the fuck
