@@ -27,4 +27,4 @@ setup_gpg
 
 setup_git
 
-export PATH
+setup_saml2aws

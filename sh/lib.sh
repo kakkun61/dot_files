@@ -61,3 +61,7 @@ setup_fuck() {
 setup_gpg() {
     export GPG_TTY=$(tty)
 }
+
+setup_saml2aws() {
+    export SAML2AWS_DISABLE_KEYCHAIN=1
+}
