@@ -60,7 +60,8 @@ setup_fuck() {
 }
 
 setup_gpg() {
-    export GPG_TTY=$(tty)
+    GPG_TTY="$(tty)"
+    export GPG_TTY
 }
 
 setup_saml2aws() {
