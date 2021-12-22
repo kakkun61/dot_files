@@ -14,9 +14,9 @@ dot_files=.
 source "$dot_files/sh/lib.sh"
 source "$dot_files/bash/lib.bash"
 
-source "$HOME/.bashrc"
-
 add_local_bin
+
+source "$HOME/.bashrc"
 
 # X 環境なら
 setup_sands
