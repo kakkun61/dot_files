@@ -29,3 +29,5 @@ Invoke-Expression "$(thefuck --alias)"
 
 # prompt
 Set-Item -Path Function:\prompt -Value (Get-Prompt) -Options ReadOnly
+
+Add-WslOpenToPath

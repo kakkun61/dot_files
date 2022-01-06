@@ -38,3 +38,8 @@ function Get-Prompt {
 function Initialize-Python {
     $Env:PYTHONIOENCODING = "utf-8"
 }
+
+function Add-WslOpenToPath {
+    param ()
+    $Env:PATH = "$actualScriptRoot\..\lib\wsl-open;$Env:PATH"
+}
