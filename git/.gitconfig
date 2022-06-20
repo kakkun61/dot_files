@@ -24,3 +24,5 @@
 	diff = diff-highlight | less
 [commit]
 	gpgsign = true
+[url "git@github.com:herp-inc/"]
+	insteadOf = https://github.com/herp-inc/
