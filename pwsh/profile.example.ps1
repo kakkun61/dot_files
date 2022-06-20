@@ -31,3 +31,6 @@ Invoke-Expression "$(thefuck --alias)"
 Set-Item -Path Function:\prompt -Value (Get-Prompt) -Options ReadOnly
 
 Add-WslOpenToPath
+
+# arduino
+Invoke-Expression "$(arduino-cli completion powershell)"
