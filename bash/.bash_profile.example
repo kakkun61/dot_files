@@ -25,6 +25,7 @@ source "$HOME/.bashrc"
 setup_sands
 
 start_ssh_agent
+# start_ssh_agent_wsl
 
 setup_gpg
 

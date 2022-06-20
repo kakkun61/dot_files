@@ -25,6 +25,22 @@ stop_ssh_agent() {
     fi
 }
 
+start_ssh_agent_wsl() {
+    if [ -z "$SSH_AUTH_SOCK" ]
+    then
+        SSH_AUTH_SOCK=$(mktemp -d /tmp/ssh-auth.XXXX)/sock
+        setsid socat UNIX-LISTEN:"$SSH_AUTH_SOCK",fork EXEC:'npiperelay -v //./pipe/openssh-ssh-agent',nofork >>/tmp/ssh-agent.log 2>&1 &
+        export SSH_AUTH_SOCK
+    fi
+}
+
+stop_ssh_agent_wsl() {
+    if [ -n "$SSH_AUTH_SOCK" ]
+    then
+        unlink "$SSH_AUTH_SOCK"
+    fi
+}
+
 setup_nix() {
     # shellcheck source=/dev/null
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"

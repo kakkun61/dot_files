@@ -6,3 +6,4 @@ source "$dot_files/sh/lib.sh"
 # shellcheck source=/dev/null
 source "$dot_files/bash/lib.bash"
 stop_ssh_agent
+# stop_ssh_agent_wsl
