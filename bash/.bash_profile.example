@@ -32,3 +32,8 @@ setup_gpg
 setup_git
 
 setup_saml2aws
+
+if [ -f ~/.bashrc ]
+then
+    . ~/.bashrc
+fi

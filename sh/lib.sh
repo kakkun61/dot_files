@@ -26,18 +26,30 @@ stop_ssh_agent() {
 }
 
 start_ssh_agent_wsl() {
-    if [ -z "$SSH_AUTH_SOCK" ]
-    then
-        SSH_AUTH_SOCK=$(mktemp -d /tmp/ssh-auth.XXXX)/sock
-        setsid socat UNIX-LISTEN:"$SSH_AUTH_SOCK",fork EXEC:'npiperelay -v //./pipe/openssh-ssh-agent',nofork >>/tmp/ssh-agent.log 2>&1 &
-        export SSH_AUTH_SOCK
-    fi
+    SSH_AUTH_DIR="$(mktemp -d /tmp/ssh-auth.XXXX)"
+    SSH_AUTH_SOCK="$SSH_AUTH_DIR/sock"
+    setsid socat UNIX-LISTEN:"$SSH_AUTH_SOCK",fork EXEC:'npiperelay -v //./pipe/openssh-ssh-agent',nofork >>"$SSH_AUTH_DIR/log" 2>&1 &
+    SSH_AUTH_PID=$!
+    export SSH_AUTH_DIR
+    export SSH_AUTH_SOCK
+    export SSH_AUTH_PID
 }
 
 stop_ssh_agent_wsl() {
+    echo stop_ssh_agent_wsl
+    if [ -n "$SSH_AUTH_PID" ]
+    then
+        kill "$SSH_AUTH_PID"
+        unset SSH_AUTH_PID
+    fi
+    if [ -n "$SSH_AUTH_DIR" ]
+    then
+        rm -r "$SSH_AUTH_DIR"
+        unset SSH_AUTH_DIR
+    fi
     if [ -n "$SSH_AUTH_SOCK" ]
     then
-        unlink "$SSH_AUTH_SOCK"
+        unset SSH_AUTH_SOCK
     fi
 }
 
