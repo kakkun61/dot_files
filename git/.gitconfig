@@ -14,7 +14,8 @@
 	default = upstream
 [help]
 	autocorrect = 1
-
+[merge]
+	conflictStyle = diff3
 [pager]
 	# diff-highlight command is there
 	# - https://github.com/git/git/tree/master/contrib/diff-highlight
