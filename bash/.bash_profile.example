@@ -35,5 +35,6 @@ setup_saml2aws
 
 if [ -f ~/.bashrc ]
 then
+    # shellcheck source=bash/.bashrc.example
     . ~/.bashrc
 fi
