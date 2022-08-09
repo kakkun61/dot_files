@@ -43,3 +43,8 @@ function Add-WslOpenToPath {
     param ()
     $Env:PATH = "$actualScriptRoot\..\lib\wsl-open;$Env:PATH"
 }
+
+function Add-WslHostsToPath {
+    param ()
+    $Env:PATH = "$actualScriptRoot\..\lib\wsl-hosts;$Env:PATH"
+}
