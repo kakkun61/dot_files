@@ -1,8 +1,8 @@
 Set-StrictMode -Version Latest
 
-$actualScriptRoot = $PSScriptRoot
+$dotFilesPwshDir = $PSScriptRoot
 if ((Get-Item $PSCommandPath).Target) {
-    $actualScriptRoot = Split-Path -Parent ((Get-Item $PSCommandPath).Target)
+    $dotFilesPwshDir = Split-Path -Parent ((Get-Item $PSCommandPath).Target)
 }
 
 function Initialize-Chocolatey {
@@ -11,7 +11,7 @@ function Initialize-Chocolatey {
 }
 
 function Import-DotenvModule {
-    Import-Module $actualScriptRoot\..\lib\poshdotenv\module\dotenv\dotenv.psd1
+    Import-Module $dotFilesPwshDir\..\lib\poshdotenv\module\dotenv\dotenv.psd1
 }
 
 function Get-Prompt {
@@ -43,12 +43,12 @@ function Initialize-Python {
 
 function Add-WslOpenToPath {
     param ()
-    $Env:PATH = "$actualScriptRoot\..\lib\wsl-open;$Env:PATH"
+    $Env:PATH = "$dotFilesPwshDir\..\lib\wsl-open;$Env:PATH"
 }
 
 function Add-WslHostsToPath {
     param ()
-    $Env:PATH = "$actualScriptRoot\..\lib\wsl-hosts;$Env:PATH"
+    $Env:PATH = "$dotFilesPwshDir\..\lib\wsl-hosts;$Env:PATH"
 }
 
 function Show-Notification {
@@ -56,5 +56,5 @@ function Show-Notification {
         [string] $Title,
         [string] $Message
     )
-    powershell.exe -ExecutionPolicy Unrestricted -Command "& { . $actualScriptRoot\..\lib\toast-in-powershell\toast.ps1; Show-Notification $Title $Message }"
+    powershell.exe -ExecutionPolicy Unrestricted -Command "& { . $dotFilesPwshDir\..\lib\toast-in-powershell\toast.ps1; Show-Notification $Title $Message }"
 }
