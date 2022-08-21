@@ -1,3 +1,5 @@
+Set-StrictMode -Version Latest
+
 $actualScriptRoot = $PSScriptRoot
 if ((Get-Item $PSCommandPath).Target) {
     $actualScriptRoot = Split-Path -Parent ((Get-Item $PSCommandPath).Target)
@@ -47,4 +49,12 @@ function Add-WslOpenToPath {
 function Add-WslHostsToPath {
     param ()
     $Env:PATH = "$actualScriptRoot\..\lib\wsl-hosts;$Env:PATH"
+}
+
+function Show-Notification {
+    param (
+        [string] $Title,
+        [string] $Message
+    )
+    powershell.exe -ExecutionPolicy Unrestricted -Command "& { . $actualScriptRoot\..\lib\toast-in-powershell\toast.ps1; Show-Notification $Title $Message }"
 }
