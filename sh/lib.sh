@@ -2,6 +2,7 @@ add_local_bin() {
     PATH="$HOME/bin:$PATH"
     PATH="$HOME/.cabal/bin:$PATH"
     PATH="$HOME/.local/bin:$PATH"
+    PATH="$HOME/go/bin:$PATH"
     export PATH
 }
 
