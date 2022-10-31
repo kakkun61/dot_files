@@ -17,7 +17,7 @@ setup_nix
 
 setup_less
 
-setup_terminal
+setup_prompt "$dot_files"
 
 setup_dircolors
 
@@ -32,3 +32,5 @@ setup_ls
 setup_shellcheck
 
 setup_direnv
+
+setup_git_completion "$dot_files"

@@ -31,6 +31,11 @@ setup_direnv() {
     eval "$(direnv hook bash)"
 }
 
-setup_git() {
+setup_git_env() {
     export GIT_PS1_SHOWDIRTYSTATE=1
+}
+
+setup_git_completion() {
+    # shellcheck source=/dev/null
+    source "$1/lib/git/contrib/completion/git-completion.bash"
 }

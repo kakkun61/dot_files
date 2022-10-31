@@ -13,3 +13,6 @@
 [submodule "lib/toast-in-powershell"]
 	path = lib/toast-in-powershell
 	url = git@gist.github.com:5ae8a70678e3a35d02ecd39c12f99110.git
+[submodule "lib/git"]
+	path = lib/git
+	url = git@github.com:git/git.git
