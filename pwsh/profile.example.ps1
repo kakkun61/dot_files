@@ -34,4 +34,4 @@ Add-WslOpenToPath
 Add-WslHostsToPath
 
 # arduino
-Invoke-Expression "$(arduino-cli completion powershell)"
+. $dotFiles\lib\arduino-cli\completion.ps1
