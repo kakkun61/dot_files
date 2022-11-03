@@ -1,4 +1,4 @@
-setup_history() {
+setup_bash_config() {
     # don't put duplicate lines or lines starting with space in the history.
     # See bash(1) for more options
     HISTCONTROL=ignoreboth
@@ -17,6 +17,12 @@ setup_history() {
     # If set, the pattern "**" used in a pathname expansion context will
     # match all files and zero or more directories and subdirectories.
     shopt -s globstar
+
+    # Don't use ^D to exit
+    set -o ignoreeof
+
+    # Use case-insensitive filename globbing
+    shopt -s nocaseglob
 }
 
 setup_ls() {

@@ -25,7 +25,7 @@ setup_bashmarks "$dot_files"
 
 setup_fuck
 
-setup_history
+setup_bash_config
 
 setup_ls
 
