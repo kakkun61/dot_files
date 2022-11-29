@@ -46,11 +46,6 @@ function Add-WslOpenToPath {
     $Env:PATH = "$dotFilesPwshDir\..\lib\wsl-open;$Env:PATH"
 }
 
-function Add-WslHostsToPath {
-    param ()
-    $Env:PATH = "$dotFilesPwshDir\..\lib\wsl-hosts;$Env:PATH"
-}
-
 function Show-Notification {
     param (
         [string] $Title,

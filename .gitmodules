@@ -7,9 +7,6 @@
 [submodule "lib/wsl-open"]
 	path = lib/wsl-open
 	url = git@gist.github.com:5de802a79a9aea821eac4d05a1e75b19.git
-[submodule "lib/wsl-hosts"]
-	path = lib/wsl-hosts
-	url = git@gist.github.com:2139c240ac0dce1bb1606c1e8bc8038c.git
 [submodule "lib/toast-in-powershell"]
 	path = lib/toast-in-powershell
 	url = git@gist.github.com:5ae8a70678e3a35d02ecd39c12f99110.git

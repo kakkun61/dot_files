@@ -31,7 +31,6 @@ Invoke-Expression "$(thefuck --alias)"
 Set-Item -Path Function:\prompt -Value (Get-Prompt) -Options ReadOnly
 
 Add-WslOpenToPath
-Add-WslHostsToPath
 
 # arduino
 . $dotFiles\lib\arduino-cli\completion.ps1
