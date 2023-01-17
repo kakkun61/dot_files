@@ -100,3 +100,7 @@ setup_gpg() {
 setup_saml2aws() {
     export SAML2AWS_DISABLE_KEYCHAIN=1
 }
+
+setup_make() {
+    alias make='make -j'
+}

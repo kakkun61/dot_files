@@ -34,3 +34,5 @@ setup_shellcheck
 setup_direnv
 
 setup_git_completion "$dot_files"
+
+setup_make
