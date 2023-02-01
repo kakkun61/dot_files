@@ -27,3 +27,13 @@ Copy-Item "$dotFiles\pwsh\profile.example.ps1" $PROFILE
 
 # edit $PROFILE
 ```
+
+## Home Manager
+
+```bash
+cd ./home-manager
+make
+cp out/home.nix ~/.config/nixpkgs/home.nix
+
+# edit home.nix
+```
