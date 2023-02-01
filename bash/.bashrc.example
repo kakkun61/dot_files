@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# dotfiles リポジトリーのディレクトリーを指定する
+# dot_files リポジトリーのディレクトリーを指定する
 dot_files=.
 
 # shellcheck source=/dev/null

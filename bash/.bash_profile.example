@@ -8,7 +8,7 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-# dotfiles リポジトリーのディレクトリーを指定する
+# dot_files リポジトリーのディレクトリーを指定する
 dot_files=.
 
 # shellcheck source=/dev/null

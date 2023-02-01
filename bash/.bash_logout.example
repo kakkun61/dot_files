@@ -1,4 +1,4 @@
-# dotfiles リポジトリーのディレクトリーを指定する
+# dot_files リポジトリーのディレクトリーを指定する
 dot_files=.
 
 # shellcheck source=/dev/null
