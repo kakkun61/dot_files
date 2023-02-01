@@ -60,7 +60,8 @@ setup_nix() {
 }
 
 setup_less() {
-    eval "$(SHELL=/bin/sh lesspipe)"
+    LESSOPEN="|lesspipe.sh %s"
+    export LESSOPEN
 }
 
 setup_prompt() {
