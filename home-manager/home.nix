@@ -6,6 +6,7 @@
         homeDirectory = builtins.getEnv "HOME";
         stateVersion = "22.11";
         packages = with pkgs; [
+            git
             gnumake
             lesspipe
             shellcheck
@@ -33,11 +34,6 @@
         direnv = {
             enable = true;
             nix-direnv.enable = true;
-        };
-        git = {
-            enable = true;
-            userEmail = "kazuki.okamoto@kakkun61.com";
-            userName = "Kazuki Okamoto";
         };
         home-manager.enable = true;
     };
