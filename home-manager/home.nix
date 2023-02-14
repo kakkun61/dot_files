@@ -5,6 +5,7 @@ let
     bash-init = "";
     bash-logout = "";
     gpg-public-key = "";
+    private = import ./private.nix;
 in
 {
     home = {
@@ -12,7 +13,9 @@ in
         homeDirectory = builtins.getEnv "HOME";
         stateVersion = "22.11";
         packages = with pkgs; [
+            cachix
             file
+            gh
             git
             gnumake
             lesspipe
@@ -28,6 +31,7 @@ in
             keep-derivations = true;
             keep-outputs = true;
             netrc-file = "${config.home.homeDirectory}/.netrc";
+            access-tokens = private.nix.settings.access-tokens;
         };
     };
 
