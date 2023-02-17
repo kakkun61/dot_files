@@ -2,9 +2,9 @@
 
 set -e
 
-if [[ ! $# == 4 ]]
+if [[ ! $# == 5 ]]
 then
-    echo "Usage $0 BASH_PROFILE_PATH BASH_INIT_PATH BASH_LOGOUT_PATH GPG_PUBLIC_PATH" >&2
+    echo "Usage $0 BASH_PROFILE_PATH BASH_INIT_PATH BASH_LOGOUT_PATH GPG_PUBLIC_PATH TMUX_CONF_PATH" >&2
     exit 1
 fi
 
@@ -30,6 +30,11 @@ do
         echo "    gpg-public-key ="
         echo "        ''"
         cat "$4"
+        echo "        '';";;
+    '    tmux-config = "";')
+        echo "    tmux-config ="
+        echo "        ''"
+        cat "$5"
         echo "        '';";;
     *) echo "$line";;
   esac

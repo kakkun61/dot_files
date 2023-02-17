@@ -5,6 +5,7 @@ let
     bash-init = "";
     bash-logout = "";
     gpg-public-key = "";
+    tmux-config = "";
     private = import ./private.nix;
 in
 {
@@ -49,6 +50,10 @@ in
         gpg = {
             enable = true;
             publicKeys = [ { text = gpg-public-key; } ];
+        };
+        tmux = {
+            enable = true;
+            extraConfig = tmux-config;
         };
         home-manager.enable = true;
     };
