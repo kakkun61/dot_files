@@ -22,6 +22,8 @@ in
             lesspipe
             shellcheck
             thefuck
+            zlib
+            haskellPackages.wai-app-static
         ];
     };
 
