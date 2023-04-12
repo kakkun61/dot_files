@@ -1,8 +1,5 @@
-add_local_bin() {
-    PATH="$HOME/bin:$PATH"
-    PATH="$HOME/.cabal/bin:$PATH"
-    PATH="$HOME/.local/bin:$PATH"
-    PATH="$HOME/go/bin:$PATH"
+add_path() {
+    PATH="$1:$PATH"
     export PATH
 }
 

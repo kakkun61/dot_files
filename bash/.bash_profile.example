@@ -16,7 +16,11 @@ source "$dot_files/sh/lib.sh"
 # shellcheck source=/dev/null
 source "$dot_files/bash/lib.bash"
 
-add_local_bin
+add_path "$HOME/bin"
+add_path "$HOME/.local/bin"
+add_path "$HOME/.cabal/bin"
+add_path "$HOME/.ghcup/bin"
+add_path "$HOME/go/bin"
 
 # shellcheck source=/dev/null
 source "$HOME/.bashrc"
