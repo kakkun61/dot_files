@@ -14,9 +14,12 @@ in
         homeDirectory = builtins.getEnv "HOME";
         stateVersion = "22.11";
         packages = with pkgs; [
+            cabal-install
             cachix
             file
+            gcc
             gh
+            ghc
             git
             gnumake
             lesspipe
