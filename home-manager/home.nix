@@ -23,6 +23,7 @@ in
             git
             gnumake
             lesspipe
+            niv
             shellcheck
             thefuck
             zlib
