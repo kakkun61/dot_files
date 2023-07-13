@@ -26,7 +26,7 @@ stop_ssh_agent() {
 start_ssh_agent_wsl() {
     SSH_AUTH_DIR="$(mktemp -d /tmp/ssh-auth.XXXX)"
     SSH_AUTH_SOCK="$SSH_AUTH_DIR/sock"
-    setsid socat UNIX-LISTEN:"$SSH_AUTH_SOCK",fork EXEC:'npiperelay -v //./pipe/openssh-ssh-agent',nofork >>"$SSH_AUTH_DIR/log" 2>&1 &
+    setsid socat UNIX-LISTEN:"$SSH_AUTH_SOCK",fork EXEC:'npiperelay.exe -v //./pipe/openssh-ssh-agent',nofork >>"$SSH_AUTH_DIR/log" 2>&1 &
     SSH_AUTH_PID=$!
     export SSH_AUTH_DIR
     export SSH_AUTH_SOCK
