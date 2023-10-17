@@ -39,6 +39,8 @@ in
             keep-outputs = true;
             netrc-file = "${config.home.homeDirectory}/.netrc";
             access-tokens = private.nix.settings.access-tokens;
+            substituters = [ "https://cache.nixos.org" "https://cache.iog.io" "https://iohk.cachix.org" ] ++ private.nix.settings.substituters;
+            trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" "iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo=" ] ++ private.nix.settings.trusted-public-keys;
         };
     };
 

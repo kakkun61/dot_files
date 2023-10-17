@@ -1,3 +1,5 @@
+TARGET = ${HOME}/.config/home-manager/home.nix
+
 .PHONY: all
 all: out/home.nix
 
@@ -6,3 +8,7 @@ out/home.nix: out home.nix embed.bash ../bash/.bash_profile.example ../bash/.bas
 
 out:
 	-mkdir out
+
+.PHONY: diff
+diff:
+	-diff --color ${TARGET} out/home.nix
