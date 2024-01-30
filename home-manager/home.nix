@@ -18,15 +18,16 @@ in
             cachix
             file
             gcc
-            gh
             ghc
             git
-            gnumake
             lesspipe
             niv
+            pueue
             shellcheck
+            stdenv
             thefuck
             zlib
+            haskellPackages.haskell-language-server
             haskellPackages.wai-app-static
         ];
     };
