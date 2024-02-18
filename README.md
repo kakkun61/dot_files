@@ -43,5 +43,6 @@ cp out/home.nix ~/.config/nixpkgs/home.nix
 ```bash
 cd ./lib/git/contrib/diff-highlight
 make PERL_PATH=$(which perl)
+mkdir -p ~/.local/bin
 install diff-highlight ~/.local/bin
 ```
