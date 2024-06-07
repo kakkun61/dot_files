@@ -20,12 +20,14 @@ in
             gcc
             ghc
             git
+            gnumake
             lesspipe
             niv
             pueue
             shellcheck
             stdenv
             thefuck
+            wget
             zlib
             haskellPackages.haskell-language-server
             haskellPackages.wai-app-static
