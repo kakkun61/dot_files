@@ -45,3 +45,8 @@ setup_git_completion() {
     # shellcheck source=/dev/null
     source "$1/lib/git/contrib/completion/git-completion.bash"
 }
+
+setup_pueue_completion() {
+    # shellcheck source=/dev/null
+    source "$1/lib/pueue/completions/bash/pueue.bash"
+}
