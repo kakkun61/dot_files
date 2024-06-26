@@ -33,7 +33,7 @@ Copy-Item "$dotFiles\pwsh\profile.example.ps1" $PROFILE
 ```bash
 cd ./home-manager
 make
-cp out/home.nix ~/.config/nixpkgs/home.nix
+cp out/home.nix ~/.config/home-manager/home.nix
 
 # edit home.nix
 ```
