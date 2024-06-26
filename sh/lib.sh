@@ -10,7 +10,7 @@ setup_sands() {
 }
 
 start_ssh_agent() {
-    if [ -z "$SSH_AGENT_PID" ]
+    if [ -z "$SSH_AUTH_SOCK" ]
     then
         eval "$(ssh-agent -s)"
     fi
