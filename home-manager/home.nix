@@ -10,9 +10,9 @@ let
 in
 {
     home = {
-        username = builtins.getEnv "USER";
-        homeDirectory = builtins.getEnv "HOME";
-        stateVersion = "23.05";
+        username = "kazuki";
+        homeDirectory = /home/kazuki;
+        stateVersion = "24.05";
         packages = with pkgs; [
             cabal-install
             cachix
@@ -23,6 +23,7 @@ in
             gnumake
             lesspipe
             niv
+            pinentry-tty
             pueue
             shellcheck
             stdenv
@@ -72,6 +73,7 @@ in
     services = {
         gpg-agent = {
             enable = true;
+            pinentryPackage = pkgs.pinentry-tty;
         };
     };
 }
