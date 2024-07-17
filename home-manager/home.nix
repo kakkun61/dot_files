@@ -22,7 +22,6 @@ in
             git
             gnumake
             lesspipe
-            niv
             pinentry-tty
             pueue
             shellcheck
