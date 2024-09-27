@@ -36,3 +36,5 @@ setup_direnv
 setup_git_completion "$dot_files"
 
 setup_make
+
+setup_gh_completion

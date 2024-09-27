@@ -50,3 +50,7 @@ setup_pueue_completion() {
     # shellcheck source=/dev/null
     source "$1/lib/pueue/completions/bash/pueue.bash"
 }
+
+setup_gh_completion() {
+    eval "$(gh completion -s bash)"
+}
