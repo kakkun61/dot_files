@@ -18,6 +18,7 @@ in
             cachix
             file
             gcc
+            gh
             ghc
             git
             gnumake
