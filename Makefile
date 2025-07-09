@@ -23,3 +23,6 @@ bash.lint:
 pwsh.lint:
 	$(PWSH) -Command "Invoke-ScriptAnalyzer $(PSSCRIPTANALYZER_ENABLEEXIT) -Path .\pwsh\lib.ps1"
 	$(PWSH) -Command "Invoke-ScriptAnalyzer $(PSSCRIPTANALYZER_ENABLEEXIT) -Path .\pwsh\profile.example.ps1"
+
+spell:
+	npm run cspell
