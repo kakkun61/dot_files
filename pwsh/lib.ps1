@@ -20,7 +20,7 @@ function Get-Prompt {
     param ()
 
     [ScriptBlock] $prompt = {
-        $realLASTEXITCODE = $LASTEXITCODE
+        $realLASTEXITCODE = if (Test-Path variable:LASTEXITCODE) { $LASTEXITCODE } else { 0 }
         $now = get-date -format "HH:mm:ss"
         $exitCode = ""
         if (-not ($?)) {
