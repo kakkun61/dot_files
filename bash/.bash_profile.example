@@ -36,3 +36,6 @@ setup_gpg
 setup_git_env
 
 setup_saml2aws
+
+# Home Manager にシェル環境を管理させないときに読み込む
+# . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"

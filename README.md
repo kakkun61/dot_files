@@ -30,12 +30,21 @@ Copy-Item "$dotFiles\pwsh\profile.example.ps1" $PROFILE
 
 ## Home Manager
 
-```bash
-cd ./home-manager
-make
-cp out/home.nix ~/.config/home-manager/home.nix
+Follow the bash instruction and then
 
-# edit home.nix
+```bash
+cd
+
+mv ~/.config/home-manager/home.nix{,.back}
+
+dot_files='path/to/this/repo'
+
+cp "$dot_files/home-manager/flake.example.nix" ~/.config/home-manager/flake.nix
+touch ~/.config/home-manager/private.nix
+
+# edit flake.nix private.nix
+
+home-manager switch --flake ~/.config/home-manager/flake.nix#default
 ```
 
 ## diff-highlight
