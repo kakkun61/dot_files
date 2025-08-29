@@ -56,11 +56,15 @@
       enable = true;
       publicKeys = [{ text = builtins.readFile ../gpg/public-key.txt; }];
     };
+    home-manager.enable = true;
     tmux = {
       enable = true;
       extraConfig = builtins.readFile ../tmux/.tmux.conf;
     };
-    home-manager.enable = true;
+    ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+    };
   };
 
   services = {
