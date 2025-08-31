@@ -8,9 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Replace this with the actual path
-    # or use --override-input
-    dot-files.url = "path:./.";
+    dot-files = {
+      url = "github:kakkun61/dot_files?dir=home-manager&ref=master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ nixpkgs, flake-parts, home-manager, dot-files, ... }:
@@ -20,6 +21,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         home-manager.flakeModules.home-manager
+        # add some options
       ];
       systems = [ system ];
       flake = {
@@ -28,7 +30,7 @@
             pkgs = import nixpkgs { inherit system; };
             modules = [
               dot-files.homeModules.default
-              ./private.nix
+              # add some configs
             ];
           };
         };

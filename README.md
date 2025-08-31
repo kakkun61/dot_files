@@ -33,16 +33,11 @@ Copy-Item "$dotFiles\pwsh\profile.example.ps1" $PROFILE
 Follow the bash instruction and then
 
 ```bash
-cd
-
-mv ~/.config/home-manager/home.nix{,.back}
-
 dot_files='path/to/this/repo'
 
 cp "$dot_files/home-manager/flake.example.nix" ~/.config/home-manager/flake.nix
-touch ~/.config/home-manager/private.nix
 
-# edit flake.nix private.nix
+# edit flake.nix
 
 home-manager switch --flake ~/.config/home-manager/flake.nix#default
 ```

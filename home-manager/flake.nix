@@ -1,5 +1,5 @@
 {
-  description = "Home-manager modules";
+  description = "This gives an environment to develop home.nix and provides it";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
