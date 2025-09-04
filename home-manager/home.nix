@@ -52,10 +52,19 @@
       enable = true;
       historyControl = [ "ignoreboth" ];
       initExtra = ''
+        set -o ignoreeof
+
         source "${config.programs.git.package}/share/bash-completion/completions/git-prompt.sh"
         # 手動で設定しなくていい？
         # source "${git}/contrib/completion/git-completion.bash"
-        source "${config.services.pueue.package}/share/bash-completion/completions/pueue.bash"
+        # source "${config.services.pueue.package}/share/bash-completion/completions/pueue.bash"
+
+        if type __git_ps1 > /dev/null 2>&1
+        then
+            PS1='\[\e]0;\w\a\]\e[34m($?)\e[0m\n\[\e[32m\]\u@\h [$SHLVL] \[\e[33m\]\w\[\e[0m\]\[\e[36m\]`__git_ps1 " %s"`\[\e[0m\]\n\$ '
+        else
+            PS1='\[\e]0;\w\a\]\e[34m($?)\e[0m\n\[\e[32m\]\u@\h [$SHLVL] \[\e[33m\]\w\[\e[0m\]\n\$ '
+        fi
       '';
       sessionVariables = {
         GIT_PS1_SHOWDIRTYSTATE = 1;
@@ -70,7 +79,6 @@
         "extglob"
         "globstar"
         "checkjobs"
-        "ignoreeof"
       ];
     };
     direnv = {
@@ -134,6 +142,8 @@
   services = {
     gpg-agent = {
       enable = true;
+      enableBashIntegration = true;
+      defaultCacheTtl = 7200;
       pinentry.package = pkgs.pinentry-tty;
     };
     pueue.enable = true;
