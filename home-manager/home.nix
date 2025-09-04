@@ -1,3 +1,4 @@
+{ git }:
 { config, pkgs, ... }:
 
 {
@@ -49,11 +50,12 @@
   programs = {
     bash = {
       enable = true;
-      historyControl = ["ignoreboth"];
+      historyControl = [ "ignoreboth" ];
       initExtra = ''
         source "${config.programs.git.package}/share/bash-completion/completions/git-prompt.sh"
-        source "${config.programs.git.package}/contrib/completion/git-completion.bash"
-        source "${config.services.pueue.package}/completions/bash/pueue.bash"
+        # 手動で設定しなくていい？
+        # source "${git}/contrib/completion/git-completion.bash"
+        source "${config.services.pueue.package}/share/bash-completion/completions/pueue.bash"
       '';
       sessionVariables = {
         GIT_PS1_SHOWDIRTYSTATE = 1;
