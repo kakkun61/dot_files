@@ -30,8 +30,6 @@ Copy-Item "$dotFiles\pwsh\profile.example.ps1" $PROFILE
 
 ## Home Manager
 
-Follow the bash instruction and then
-
 ```bash
 dot_files='path/to/this/repo'
 

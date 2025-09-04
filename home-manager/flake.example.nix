@@ -11,6 +11,7 @@
     dot-files = {
       url = "github:kakkun61/dot_files?dir=home-manager&ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
     };
   };
 
@@ -27,7 +28,7 @@
       flake = {
         homeConfigurations = {
           default = home-manager.lib.homeManagerConfiguration {
-            pkgs = import nixpkgs { inherit system; };
+            pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
             modules = [
               dot-files.homeModules.default
               # add some configs

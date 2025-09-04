@@ -47,23 +47,85 @@
   };
 
   programs = {
+    bash = {
+      enable = true;
+      historyControl = ["ignoreboth"];
+      initExtra = ''
+        source "${config.programs.git.package}/share/bash-completion/completions/git-prompt.sh"
+        source "${config.programs.git.package}/contrib/completion/git-completion.bash"
+        source "${config.services.pueue.package}/completions/bash/pueue.bash"
+      '';
+      sessionVariables = {
+        GIT_PS1_SHOWDIRTYSTATE = 1;
+      };
+      shellAliases = {
+        ls = "ls --color=auto";
+        shellcheck = "shellcheck --color=always";
+      };
+      shellOptions = [
+        "histappend"
+        "checkwinsize"
+        "extglob"
+        "globstar"
+        "checkjobs"
+        "ignoreeof"
+      ];
+    };
     direnv = {
       enable = true;
       enableBashIntegration = true;
       nix-direnv.enable = true;
+    };
+    gh = {
+      enable = true;
+      extensions = [
+        pkgs.gh-copilot
+      ];
+      gitCredentialHelper.enable = true;
+    };
+    git = {
+      enable = true;
+      diff-highlight.enable = true;
+      ignores = [
+        ".DS_Store"
+        "*~"
+        "Thumbs.db"
+      ];
+      signing = {
+        key = "C37B19CBD6166EFF";
+        signByDefault = true;
+      };
+      userEmail = "kazuki.okamoto@kakkun61.com";
+      userName = "Kazuki Okamoto (岡本和樹)";
+      extraConfig = {
+        color.ui = "auto";
+        core = {
+          editor = "nano";
+          eof = "lf";
+          autocrlf = false;
+        };
+        help.autocorrect = 1;
+        init.defaultBranch = "master";
+        merge.conflictStyle = "diff3";
+        pull.ff = "only";
+        push.default = "upstream";
+      };
     };
     gpg = {
       enable = true;
       publicKeys = [{ text = builtins.readFile ../gpg/public-key.txt; }];
     };
     home-manager.enable = true;
-    tmux = {
-      enable = true;
-      extraConfig = builtins.readFile ../tmux/.tmux.conf;
-    };
     ssh = {
       enable = true;
       enableDefaultConfig = false;
+    };
+    tmux = {
+      enable = true;
+      baseIndex = 1;
+      mouse = true;
+      prefix = "C-t";
+      terminal = "screen-256color";
     };
   };
 
@@ -72,5 +134,6 @@
       enable = true;
       pinentry.package = pkgs.pinentry-tty;
     };
+    pueue.enable = true;
   };
 }
