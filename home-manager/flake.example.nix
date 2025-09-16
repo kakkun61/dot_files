@@ -23,6 +23,7 @@
           modules = [
             dot-files.homeModules.default
             # add some configs
+            ./home.nix
           ];
         };
       };
