@@ -19,7 +19,10 @@
     in {
       homeConfigurations = {
         default = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
           modules = [
             dot-files.homeModules.default
             # add some configs
