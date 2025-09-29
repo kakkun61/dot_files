@@ -150,5 +150,6 @@
       pinentry.package = pkgs.pinentry-tty;
     };
     pueue.enable = true;
+    ssh-agent.enable = true;
   };
 }
