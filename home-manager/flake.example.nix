@@ -15,7 +15,10 @@
 
   outputs = { nixpkgs, home-manager, dot-files, ... }:
     let
-      system = "x86_64-linux";
+      system =
+        # select your system
+        "x86_64-linux";
+        # "aarch64-darwin";
     in {
       homeConfigurations = {
         default = home-manager.lib.homeManagerConfiguration {

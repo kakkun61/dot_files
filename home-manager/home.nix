@@ -4,7 +4,7 @@
 {
   home = {
     username = "kazuki";
-    homeDirectory = /home/kazuki;
+    homeDirectory = if pkgs.system == "aarch64-darwin" then "/Users/kazuki" else "/home/kazuki";
     stateVersion = "24.05";
     packages = with pkgs; [
       cabal-install
@@ -150,6 +150,6 @@
       pinentry.package = pkgs.pinentry-tty;
     };
     pueue.enable = true;
-    ssh-agent.enable = true;
+    ssh-agent.enable = pkgs.system != "aarch64-darwin";
   };
 }
