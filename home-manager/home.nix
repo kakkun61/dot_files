@@ -81,6 +81,10 @@
         "checkjobs"
       ];
     };
+    diff-highlight = {
+      enable = true;
+      enableGitIntegration = true;
+    };
     direnv = {
       enable = true;
       enableBashIntegration = true;
@@ -98,7 +102,6 @@
     };
     git = {
       enable = true;
-      diff-highlight.enable = true;
       ignores = [
         ".DS_Store"
         "*~"
@@ -108,9 +111,7 @@
         key = "C37B19CBD6166EFF";
         signByDefault = true;
       };
-      userEmail = "kazuki.okamoto@kakkun61.com";
-      userName = "Kazuki Okamoto (岡本和樹)";
-      extraConfig = {
+      settings = {
         color.ui = "auto";
         core = {
           editor = "nano";
@@ -122,6 +123,10 @@
         merge.conflictStyle = "diff3";
         pull.ff = "only";
         push.default = "upstream";
+        user = {
+          email = "kazuki.okamoto@kakkun61.com";
+          name = "Kazuki Okamoto (岡本和樹)";
+        };
       };
     };
     gpg = {
