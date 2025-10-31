@@ -5,15 +5,12 @@
   home = {
     username = "kazuki";
     homeDirectory = if pkgs.system == "aarch64-darwin" then "/Users/kazuki" else "/home/kazuki";
-    stateVersion = "24.05";
     packages = with pkgs; [
       cabal-install
       cachix
       file
       gcc
-      gh
       ghc
-      git
       gnumake
       lesspipe
       pinentry-tty

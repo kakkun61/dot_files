@@ -28,6 +28,7 @@
           };
           modules = [
             dot-files.homeModules.default
+            { home.stateVersion = "24.05"; }
             # add some configs
             ./home.nix
           ];
