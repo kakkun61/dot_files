@@ -131,7 +131,7 @@
     };
     gpg = {
       enable = true;
-      publicKeys = [{ text = builtins.readFile ../gpg/public-key.txt; }];
+      publicKeys = [{ text = builtins.readFile ./gpg.pub.asc; }];
     };
     home-manager.enable = true;
     ssh = {
