@@ -13,15 +13,22 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, dot-files, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      dot-files,
+      ...
+    }:
     let
       system =
         # select your system
         "x86_64-linux";
-        # "aarch64-darwin";
-    in {
+      # "aarch64-darwin";
+    in
+    {
       homeConfigurations = {
-        default = home-manager.lib.homeManagerConfiguration {
+        kazuki = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;

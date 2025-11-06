@@ -8,22 +8,48 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    envar = {
+      url = "github:kakkun61/envar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     git = {
       url = "git+https://github.com/git/git";
       flake = false;
     };
   };
 
-  outputs = inputs@{ nixpkgs, flake-parts, home-manager, git, ... }:
+  outputs =
+    inputs@{
+      nixpkgs,
+      flake-parts,
+      home-manager,
+      envar,
+      treefmt-nix,
+      git,
+      ...
+    }:
     let
       system = "x86_64-linux";
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         home-manager.flakeModules.home-manager
+        treefmt-nix.flakeModule
       ];
       systems = [ system ];
-      perSystem = { config, self', inputs', pkgs, system, ... }:
+      perSystem =
+        {
+          config,
+          self',
+          inputs',
+          pkgs,
+          system,
+          ...
+        }:
         let
           start-ssh-agent-wsl = pkgs.writeShellScriptBin "start-ssh-agent-wsl" ''
             SSH_AUTH_DIR="$(mktemp -d /tmp/ssh-auth.XXXX)"
@@ -66,11 +92,13 @@
               nixpkgs-fmt
             ];
           };
-          formatter = pkgs.nixpkgs-fmt;
+          treefmt = {
+            programs.nixfmt.enable = true;
+          };
         };
       flake = {
         homeModules = {
-          default = import ./home.nix { inherit git; };
+          default = import ./home.nix { inherit envar git; };
         };
       };
     };
