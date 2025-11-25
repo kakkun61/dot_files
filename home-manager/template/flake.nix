@@ -23,8 +23,8 @@
     let
       system =
         # select your system
+        # "aarch64-darwin";
         "x86_64-linux";
-      # "aarch64-darwin";
     in
     {
       homeConfigurations = {

@@ -31,13 +31,12 @@ Copy-Item "$dotFiles\pwsh\profile.example.ps1" $PROFILE
 ## Home Manager
 
 ```bash
-dot_files='path/to/this/repo'
+cd ~/.config/home-manager
+nix flake init --template github:kakkun61/dot_files?dir=home-manager#default
 
-cp "$dot_files/home-manager/flake.example.nix" ~/.config/home-manager/flake.nix
+# edit flake.nix and put home.nix
 
-# edit flake.nix
-
-home-manager switch --flake ~/.config/home-manager/flake.nix#default
+home-manager switch --flake .
 ```
 
 ## diff-highlight
