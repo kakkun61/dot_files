@@ -17,6 +17,7 @@
         lesspipe
         pinentry-tty
         pueue
+        ricty
         shellcheck
         stdenv
         wget
