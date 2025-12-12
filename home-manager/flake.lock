@@ -10,14 +10,17 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1762404263,
-        "narHash": "sha256-CoQ3Zp5rVttHPqeSX2sg/t8Pr8zYcbNXLzWPPaFdvI8=",
-        "path": "/home/kazuki/Projects/envar",
-        "type": "path"
+        "lastModified": 1762407484,
+        "narHash": "sha256-uJ5nUpWV+wTysnJwr3tqyVZC3eGIVuPSP+ONGiSw1S8=",
+        "owner": "kakkun61",
+        "repo": "envar",
+        "rev": "07029bde2ff6e669ac967fcaaaf49cfdf894e4ad",
+        "type": "github"
       },
       "original": {
-        "path": "/home/kazuki/Projects/envar",
-        "type": "path"
+        "owner": "kakkun61",
+        "repo": "envar",
+        "type": "github"
       }
     },
     "flake-parts": {
