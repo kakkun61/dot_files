@@ -1,5 +1,8 @@
 { envar, git }:
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+let
+  jsonFormat = pkgs.formats.json {};
+in
 {
   imports = [ envar.homeModules.default ];
 
@@ -25,6 +28,95 @@
         haskellPackages.haskell-language-server
         haskellPackages.wai-app-static
       ];
+    };
+
+    xdg.configFile = lib.mkIf (pkgs.stdenv.hostPlatform.system == "aarch64-darwin") {
+      "karabiner/karabiner.json".source =
+        jsonFormat.generate "karabiner.json" {
+            profiles = [
+              {
+                complex_modifications = {
+                  rules = [
+                    {
+                      description = "AquaSKK for Terminal/iTerm2";
+                      manipulators = [
+                        {
+                          conditions = [
+                            {
+                              bundle_identifiers = [
+                                "^com\\.googlecode\\.iterm2"
+                                "^com\\.apple\\.Terminal"
+                              ];
+                              type = "frontmost_application_if";
+                            }
+                          ];
+                          from = {
+                            key_code = "j";
+                            modifiers = { mandatory = [ "left_control" ]; };
+                          };
+                          to = [
+                            {
+                              key_code = "j";
+                              modifiers = [ "left_control" "left_shift" ];
+                            }
+                          ];
+                          type = "basic";
+                        }
+                      ];
+                    }
+                    {
+                      description = "Shift and Space";
+                      manipulators = [
+                        {
+                          from = {
+                            key_code = "spacebar";
+                            modifiers = { optional = [ "any" ]; };
+                          };
+                          to = [ { key_code = "left_shift"; } ];
+                          to_if_alone = [ { key_code = "spacebar"; } ];
+                          type = "basic";
+                        }
+                      ];
+                    }
+                  ];
+                };
+                devices = [
+                  {
+                    identifiers = {
+                      is_keyboard = true;
+                      product_id = 641;
+                      vendor_id = 1452;
+                    };
+                    simple_modifications = [
+                      {
+                        from = { key_code = "caps_lock"; };
+                        to = [ { key_code = "left_control"; } ];
+                      }
+                      {
+                        from = { key_code = "left_command"; };
+                        to = [ { key_code = "left_shift"; } ];
+                      }
+                      {
+                        from = { key_code = "left_control"; };
+                        to = [ { key_code = "launchpad"; } ];
+                      }
+                      {
+                        from = { key_code = "left_shift"; };
+                        to = [ { key_code = "left_command"; } ];
+                      }
+                    ];
+                  }
+                ];
+                name = "Default";
+                selected = true;
+                virtual_hid_keyboard = { keyboard_type_v2 = "ansi"; };
+              }
+              {
+                name = "Normal";
+                virtual_hid_keyboard = { keyboard_type_v2 = "ansi"; };
+              }
+            ];
+        };
     };
 
     nix = {
