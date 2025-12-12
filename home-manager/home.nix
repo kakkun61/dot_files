@@ -1,7 +1,12 @@
 { envar, git }:
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
-  jsonFormat = pkgs.formats.json {};
+  jsonFormat = pkgs.formats.json { };
 in
 {
   imports = [ envar.homeModules.default ];
@@ -31,92 +36,110 @@ in
     };
 
     xdg.configFile = lib.mkIf (pkgs.stdenv.hostPlatform.system == "aarch64-darwin") {
-      "karabiner/karabiner.json".source =
-        jsonFormat.generate "karabiner.json" {
-            profiles = [
-              {
-                complex_modifications = {
-                  rules = [
+      "karabiner/karabiner.json".source = jsonFormat.generate "karabiner.json" {
+        profiles = [
+          {
+            complex_modifications = {
+              rules = [
+                {
+                  description = "AquaSKK for Terminal/iTerm2";
+                  manipulators = [
                     {
-                      description = "AquaSKK for Terminal/iTerm2";
-                      manipulators = [
+                      conditions = [
                         {
-                          conditions = [
-                            {
-                              bundle_identifiers = [
-                                "^com\\.googlecode\\.iterm2"
-                                "^com\\.apple\\.Terminal"
-                              ];
-                              type = "frontmost_application_if";
-                            }
+                          bundle_identifiers = [
+                            "^com\\.googlecode\\.iterm2"
+                            "^com\\.apple\\.Terminal"
                           ];
-                          from = {
-                            key_code = "j";
-                            modifiers = { mandatory = [ "left_control" ]; };
-                          };
-                          to = [
-                            {
-                              key_code = "j";
-                              modifiers = [ "left_control" "left_shift" ];
-                            }
-                          ];
-                          type = "basic";
+                          type = "frontmost_application_if";
                         }
                       ];
-                    }
-                    {
-                      description = "Shift and Space";
-                      manipulators = [
+                      from = {
+                        key_code = "j";
+                        modifiers = {
+                          mandatory = [ "left_control" ];
+                        };
+                      };
+                      to = [
                         {
-                          from = {
-                            key_code = "spacebar";
-                            modifiers = { optional = [ "any" ]; };
-                          };
-                          to = [ { key_code = "left_shift"; } ];
-                          to_if_alone = [ { key_code = "spacebar"; } ];
-                          type = "basic";
+                          key_code = "j";
+                          modifiers = [
+                            "left_control"
+                            "left_shift"
+                          ];
                         }
                       ];
+                      type = "basic";
                     }
                   ];
+                }
+                {
+                  description = "Shift and Space";
+                  manipulators = [
+                    {
+                      from = {
+                        key_code = "spacebar";
+                        modifiers = {
+                          optional = [ "any" ];
+                        };
+                      };
+                      to = [ { key_code = "left_shift"; } ];
+                      to_if_alone = [ { key_code = "spacebar"; } ];
+                      type = "basic";
+                    }
+                  ];
+                }
+              ];
+            };
+            devices = [
+              {
+                identifiers = {
+                  is_keyboard = true;
+                  product_id = 641;
+                  vendor_id = 1452;
                 };
-                devices = [
+                simple_modifications = [
                   {
-                    identifiers = {
-                      is_keyboard = true;
-                      product_id = 641;
-                      vendor_id = 1452;
+                    from = {
+                      key_code = "caps_lock";
                     };
-                    simple_modifications = [
-                      {
-                        from = { key_code = "caps_lock"; };
-                        to = [ { key_code = "left_control"; } ];
-                      }
-                      {
-                        from = { key_code = "left_command"; };
-                        to = [ { key_code = "left_shift"; } ];
-                      }
-                      {
-                        from = { key_code = "left_control"; };
-                        to = [ { key_code = "launchpad"; } ];
-                      }
-                      {
-                        from = { key_code = "left_shift"; };
-                        to = [ { key_code = "left_command"; } ];
-                      }
-                    ];
+                    to = [ { key_code = "left_control"; } ];
+                  }
+                  {
+                    from = {
+                      key_code = "left_command";
+                    };
+                    to = [ { key_code = "left_shift"; } ];
+                  }
+                  {
+                    from = {
+                      key_code = "left_control";
+                    };
+                    to = [ { key_code = "launchpad"; } ];
+                  }
+                  {
+                    from = {
+                      key_code = "left_shift";
+                    };
+                    to = [ { key_code = "left_command"; } ];
                   }
                 ];
-                name = "Default";
-                selected = true;
-                virtual_hid_keyboard = { keyboard_type_v2 = "ansi"; };
-              }
-              {
-                name = "Normal";
-                virtual_hid_keyboard = { keyboard_type_v2 = "ansi"; };
               }
             ];
-        };
+            name = "Default";
+            selected = true;
+            virtual_hid_keyboard = {
+              keyboard_type_v2 = "ansi";
+            };
+          }
+          {
+            name = "Normal";
+            virtual_hid_keyboard = {
+              keyboard_type_v2 = "ansi";
+            };
+          }
+        ];
+      };
     };
 
     nix = {

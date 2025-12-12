@@ -32,15 +32,12 @@
       git,
       ...
     }:
-    let
-      system = "x86_64-linux";
-    in
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         home-manager.flakeModules.home-manager
         treefmt-nix.flakeModule
       ];
-      systems = [ system ];
+      systems = nixpkgs.lib.systems.flakeExposed;
       perSystem =
         {
           config,
@@ -88,9 +85,7 @@
             };
           };
           devShells.default = pkgs.mkShell {
-            packages = with pkgs; [
-              nixpkgs-fmt
-            ];
+            packages = with pkgs; [ ];
           };
           treefmt = {
             programs.nixfmt.enable = true;
