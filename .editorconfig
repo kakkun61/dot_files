@@ -13,10 +13,10 @@ end_of_line = crlf
 [.gitconfig, .gitmodules]
 indent_style = tab
 
-[Makefile]
+[Makefile*]
 indent_style = tab
 
-[home-manager/*]
+[*.nix]
 indent_size = 2
 tab_width = 2
 

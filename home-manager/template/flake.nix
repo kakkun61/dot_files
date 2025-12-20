@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dot-files = {
-      url = "github:kakkun61/dot_files?dir=home-manager&ref=master";
+      url = "github:kakkun61/dot_files?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
