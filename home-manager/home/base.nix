@@ -72,6 +72,9 @@ let
         programs = {
           bash = {
             enable = true;
+            bashrcExtra = ''
+              set -o ignoreeof
+            '';
             historyControl = [ "ignoreboth" ];
             initExtra = ''
               source "${config.programs.git.package}/share/bash-completion/completions/git-prompt.sh"
@@ -96,7 +99,6 @@ let
               "extglob"
               "globstar"
               "histappend"
-              "ignoreeof"
             ];
           };
           diff-highlight = {
