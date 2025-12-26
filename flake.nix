@@ -50,7 +50,10 @@
             packages = with pkgs; [ cspell ];
           };
           treefmt = {
-            programs.nixfmt.enable = true;
+            programs = {
+              jsonfmt.enable = true;
+              nixfmt.enable = true;
+            };
           };
         };
       flake = {

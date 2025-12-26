@@ -22,3 +22,6 @@ tab_width = 2
 
 [*/kana-rule.conf]
 charset = unset
+
+[*.json]
+indent_size = 2
