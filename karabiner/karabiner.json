@@ -1,12 +1,16 @@
 {
     "profiles": [
         {
+            "name": "Default",
+            "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" },
             "complex_modifications": {
                 "rules": [
                     {
                         "description": "AquaSKK for Terminal/iTerm2",
                         "manipulators": [
                             {
+                                "type": "basic",
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
@@ -25,8 +29,7 @@
                                         "key_code": "j",
                                         "modifiers": ["left_control", "left_shift"]
                                     }
-                                ],
-                                "type": "basic"
+                                ]
                             }
                         ]
                     },
@@ -34,13 +37,138 @@
                         "description": "Shift and Space",
                         "manipulators": [
                             {
+                                "type": "basic",
                                 "from": {
                                     "key_code": "spacebar",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "left_shift" }],
-                                "to_if_alone": [{ "key_code": "spacebar" }],
-                                "type": "basic"
+                                "to_if_alone": [{ "key_code": "spacebar" }]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Swap Control+Arrow and Option+Arrow",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                "key_code": "right_arrow",
+                                "modifiers": {
+                                    "mandatory": ["control"]
+                                }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": ["option"]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                "key_code": "left_arrow",
+                                "modifiers": {
+                                    "mandatory": ["control"]
+                                }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": ["option"]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "up_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["control"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": ["option"]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "down_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["control"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": ["option"]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                "key_code": "right_arrow",
+                                "modifiers": {
+                                    "mandatory": ["option"]
+                                }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": ["control"]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                "key_code": "left_arrow",
+                                "modifiers": {
+                                    "mandatory": ["option"]
+                                }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": ["control"]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "up_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["option"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": ["control"]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "down_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["option"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": ["control"]
+                                    }
+                                ]
                             }
                         ]
                     }
@@ -72,10 +200,7 @@
                         }
                     ]
                 }
-            ],
-            "name": "Default",
-            "selected": true,
-            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+            ]
         },
         {
             "name": "Normal",
