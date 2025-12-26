@@ -1,0 +1,14 @@
+{
+  "name": "dot_files",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kakkun61/dot_files.git"
+  },
+  "scripts": {
+    "cspell": "cspell \"**\""
+  },
+  "devDependencies": {
+    "cspell": "^9"
+  }
+}
