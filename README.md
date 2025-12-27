@@ -6,7 +6,7 @@
 cd ~/.config/home-manager
 nix flake init --template github:kakkun61/dot_files
 
-# edit flake.nix and put home.nix
+# edit flake.nix and home.nix
 
 make
 ```
