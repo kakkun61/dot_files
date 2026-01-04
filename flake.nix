@@ -61,6 +61,7 @@
           inherit envar git;
           root = ./.;
         };
+        templates.default = import ./home-manager/template.nix;
         homeConfigurations = {
           gmk = home-manager.lib.homeManagerConfiguration {
             pkgs = import nixpkgs {
