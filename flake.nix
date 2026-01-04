@@ -63,7 +63,7 @@
         };
         templates.default = import ./home-manager/template.nix;
         # ファイル生成用・テスト用の設定
-        homeConfigurations.kazuki = home-manager.lib.homeManagerConfiguration {
+        homeConfigurations.test = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             system = "x86_64-linux";
             config.allowUnfree = true;

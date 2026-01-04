@@ -35,8 +35,9 @@ tmux/%: result/home-files/.config/tmux/% .out/autogen-note.txt
 	echo '############################################' >> $@
 	echo '' >> $@
 
-# [Note] result ディレクトリー以下を生成するレシピがないのはなぜ？
+# [Note] result ディレクトリー以下を生成するレシピに依存していないのはなぜ？
 # Nix なので生成日が 1970-01-01 になり、常にビルドが走ってしまうため
 # 下記を手動で実行しよう
-#
-# home-manager build --flake .
+.PHONY: build-generation
+build-generation:
+	home-manager build --flake .#test
