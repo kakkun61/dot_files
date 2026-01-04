@@ -74,6 +74,17 @@
               { home.stateVersion = "25.05"; }
             ];
           };
+          surface-wsl = home-manager.lib.homeManagerConfiguration {
+            pkgs = import nixpkgs {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+            modules = [
+              self.homeModules.default
+              ./home-manager/configuration/surface-wsl.nix
+              { home.stateVersion = "24.05"; }
+            ];
+          };
           # ファイル生成用・テスト用の設定
           test = home-manager.lib.homeManagerConfiguration {
             pkgs = import nixpkgs {
