@@ -61,17 +61,29 @@
           inherit envar git;
           root = ./.;
         };
-        templates.default = import ./home-manager/template.nix;
-        # ファイル生成用・テスト用の設定
-        homeConfigurations.test = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
+        homeConfigurations = {
+          gmk = home-manager.lib.homeManagerConfiguration {
+            pkgs = import nixpkgs {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+            modules = [
+              self.homeModules.default
+              ./home-manager/configuration/gmk.nix
+              { home.stateVersion = "25.05"; }
+            ];
           };
-          modules = [
-            self.homeModules.default
-            { home.stateVersion = "25.11"; }
-          ];
+          # ファイル生成用・テスト用の設定
+          test = home-manager.lib.homeManagerConfiguration {
+            pkgs = import nixpkgs {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+            modules = [
+              self.homeModules.default
+              { home.stateVersion = "25.11"; }
+            ];
+          };
         };
       };
     };

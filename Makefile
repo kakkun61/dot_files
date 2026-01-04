@@ -41,3 +41,11 @@ tmux/%: result/home-files/.config/tmux/% .out/autogen-note.txt
 .PHONY: build-generation
 build-generation:
 	home-manager build --flake .#test
+
+.PHONY: home-manager-build
+home-manager-build:
+	home-manager build --flake ".#$$(hostname)"
+
+.PHONY: home-manager-switch
+home-manager-switch:
+	home-manager switch --flake ".#$$(hostname)"

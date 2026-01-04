@@ -10,7 +10,11 @@
   config = {
     home = {
       packages = with pkgs; [
-        # ricty
+        btop
+        kubernetes-helm
+      ];
+      sessionPath = [
+        "$HOME/.local/bin"
       ];
     };
   };
