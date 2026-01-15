@@ -62,41 +62,48 @@
           root = ./.;
         };
         templates.default = import ./home-manager/template.nix;
-        homeConfigurations = {
-          gmk = home-manager.lib.homeManagerConfiguration {
-            pkgs = import nixpkgs {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
+        homeConfigurations =
+          let
+            mkTestConfiguration =
+              system:
+              home-manager.lib.homeManagerConfiguration {
+                pkgs = import nixpkgs {
+                  inherit system;
+                  config.allowUnfree = true;
+                };
+                modules = [
+                  self.homeModules.default
+                  { home.stateVersion = "25.11"; }
+                ];
+              };
+          in
+          {
+            gmk = home-manager.lib.homeManagerConfiguration {
+              pkgs = import nixpkgs {
+                system = "x86_64-linux";
+                config.allowUnfree = true;
+              };
+              modules = [
+                self.homeModules.default
+                ./home-manager/configuration/gmk.nix
+                { home.stateVersion = "25.05"; }
+              ];
             };
-            modules = [
-              self.homeModules.default
-              ./home-manager/configuration/gmk.nix
-              { home.stateVersion = "25.05"; }
-            ];
-          };
-          surface-wsl = home-manager.lib.homeManagerConfiguration {
-            pkgs = import nixpkgs {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
+            surface-wsl = home-manager.lib.homeManagerConfiguration {
+              pkgs = import nixpkgs {
+                system = "x86_64-linux";
+                config.allowUnfree = true;
+              };
+              modules = [
+                self.homeModules.default
+                ./home-manager/configuration/surface-wsl.nix
+                { home.stateVersion = "24.05"; }
+              ];
             };
-            modules = [
-              self.homeModules.default
-              ./home-manager/configuration/surface-wsl.nix
-              { home.stateVersion = "24.05"; }
-            ];
+            # ファイル生成用・テスト用の設定
+            test-x86_64-linux = mkTestConfiguration "x86_64-linux";
+            test-aarch64-darwin = mkTestConfiguration "aarch64-darwin";
           };
-          # ファイル生成用・テスト用の設定
-          test = home-manager.lib.homeManagerConfiguration {
-            pkgs = import nixpkgs {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-            modules = [
-              self.homeModules.default
-              { home.stateVersion = "25.11"; }
-            ];
-          };
-        };
       };
     };
 }
