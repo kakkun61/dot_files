@@ -8,10 +8,6 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    envar = {
-      url = "github:kakkun61/envar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +24,6 @@
       nixpkgs,
       flake-parts,
       home-manager,
-      envar,
       treefmt-nix,
       git,
       ...
@@ -58,7 +53,7 @@
         };
       flake = {
         homeModules.default = import ./home-manager/home.nix {
-          inherit envar git;
+          inherit git;
           root = ./.;
         };
         templates.default = import ./home-manager/template.nix;
