@@ -60,11 +60,12 @@ words:
   - xcape
 useGitignore: true
 ignorePaths:
-  - lib
-  - .gitmodules
-  - .git
   - .cspell.json
   - .editorconfig
+  - .git
+  - .gitmodules
+  - aqua-skk/kana-rule.conf
   - git/.gitconfig
+  - lib
   - secret.yaml
 enableGlobDot: true
