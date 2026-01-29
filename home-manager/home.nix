@@ -12,7 +12,7 @@
   home = {
     username = "kazuki";
     homeDirectory =
-      if pkgs.stdenv.hostPlatform.system == "aarch64-darwin" then "/Users/kazuki" else "/home/kazuki";
+      if pkgs.stdenv.hostPlatform.isDarwin then "/Users/kazuki" else "/home/kazuki";
     packages = with pkgs; [
       cabal-install
       cachix
@@ -29,14 +29,20 @@
       haskellPackages.haskell-language-server
       haskellPackages.wai-app-static
     ];
-    file."Library/Application Support/AquaSKK/kana-rule.conf" = {
-      enable = pkgs.stdenv.hostPlatform.system == "aarch64-darwin";
-      source = root + /aqua-skk/kana-rule.conf;
+    file = {
+      "Library/Application Support/AquaSKK/kana-rule.conf" = {
+        enable = pkgs.stdenv.hostPlatform.isDarwin;
+        source = root + /aqua-skk/kana-rule.conf;
+      };
+      "Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Settings/kana-rule.conf" = {
+        enable = pkgs.stdenv.hostPlatform.isDarwin;
+        source = root + /mac-skk/kana-rule.conf;
+      };
     };
   };
 
   xdg.configFile."karabiner/karabiner.json" = {
-    enable = pkgs.stdenv.hostPlatform.system == "aarch64-darwin";
+    enable = pkgs.stdenv.hostPlatform.isDarwin;
     source = root + /karabiner/karabiner.json;
   };
 
