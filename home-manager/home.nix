@@ -11,8 +11,7 @@
 {
   home = {
     username = "kazuki";
-    homeDirectory =
-      if pkgs.stdenv.hostPlatform.isDarwin then "/Users/kazuki" else "/home/kazuki";
+    homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/kazuki" else "/home/kazuki";
     packages = with pkgs; [
       cabal-install
       cachix
