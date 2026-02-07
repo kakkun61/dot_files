@@ -1,0 +1,26 @@
+variable "cloudflare_api_token" {
+  description = "Cloudflare API Token"
+  type        = string
+  sensitive   = true
+}
+
+variable "cloudflare_account_id" {
+  description = "Cloudflare Account ID"
+  type        = string
+}
+
+variable "cloudflare_zone_id" {
+  description = "Cloudflare Zone ID"
+  type        = string
+}
+
+variable "domain" {
+  description = "メインドメイン名"
+  type        = string
+}
+
+variable "tunnel_name" {
+  description = "Cloudflare Tunnel 名"
+  type        = string
+  default     = "my-tunnel"
+}

@@ -1,15 +1,15 @@
-[submodule "lib/bashmarks"]
-	path = lib/bashmarks
+[submodule "home/lib/bashmarks"]
+	path = home/lib/bashmarks
 	url = git@github.com:huyng/bashmarks.git
-[submodule "lib/poshdotenv"]
-	path = lib/poshdotenv
+[submodule "home/lib/poshdotenv"]
+	path = home/lib/poshdotenv
 	url = git@github.com:stopthatastronaut/poshdotenv.git
-[submodule "lib/wsl-open"]
-	path = lib/wsl-open
+[submodule "home/lib/wsl-open"]
+	path = home/lib/wsl-open
 	url = git@gist.github.com:5de802a79a9aea821eac4d05a1e75b19.git
-[submodule "lib/toast-in-powershell"]
-	path = lib/toast-in-powershell
+[submodule "home/lib/toast-in-powershell"]
+	path = home/lib/toast-in-powershell
 	url = git@gist.github.com:5ae8a70678e3a35d02ecd39c12f99110.git
-[submodule "lib/git"]
-	path = lib/git
+[submodule "home/lib/git"]
+	path = home/lib/git
 	url = git@github.com:git/git.git
