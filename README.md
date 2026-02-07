@@ -12,6 +12,6 @@
 
 Nix OS の設定とか
 
-## Terraform
+## terraform
 
 Cloudflare Tunnel とか DNS とか
