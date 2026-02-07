@@ -11,10 +11,9 @@
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
   };
 
@@ -25,26 +24,15 @@
       nixos-wsl,
       nix-darwin,
       flake-parts,
-      treefmt-nix,
       ...
     }:
 
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ treefmt-nix.flakeModule ];
       systems = [
         "x86_64-linux"
         "aarch64-linux"
         "aarch64-darwin"
       ];
-      perSystem =
-        {
-          ...
-        }:
-        {
-          treefmt = {
-            programs.nixfmt.enable = true;
-          };
-        };
       flake = {
         nixosModules = {
           cloudflare-tunnel-home = import ./module/cloudflare-tunnel-home.nix;

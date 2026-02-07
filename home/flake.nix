@@ -3,13 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/release-25.11";
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     git = {
@@ -24,15 +23,11 @@
       nixpkgs,
       flake-parts,
       home-manager,
-      treefmt-nix,
       git,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        home-manager.flakeModules.home-manager
-        treefmt-nix.flakeModule
-      ];
+      imports = [ home-manager.flakeModules.home-manager ];
       systems = nixpkgs.lib.systems.flakeExposed;
       perSystem =
         {
@@ -41,15 +36,6 @@
         }:
         {
           packages.ssh-agent-wsl = import ./home-manager/ssh-agent-wsl.nix { inherit pkgs; };
-          devShells.default = pkgs.mkShell {
-            packages = with pkgs; [ cspell ];
-          };
-          treefmt = {
-            programs = {
-              jsonfmt.enable = true;
-              nixfmt.enable = true;
-            };
-          };
         };
       flake = {
         homeModules.default = import ./home-manager/home.nix {

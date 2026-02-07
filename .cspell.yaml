@@ -1,24 +1,49 @@
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: 0.2
+language: en
 words:
+  - ahci
   - antialiasing
+  - aspmx
+  - atproto
+  - authelia
   - autocorrect
+  - autogen
+  - avahi
   - bashmarks
+  - bsky
+  - btop
   - cachix
+  - cfargotunnel
   - checkjobs
   - checkwinsize
   - cleartype
+  - cloudflared
+  - cpuset
   - defterm
   - dircolors
   - direnv
+  - dmarc
+  - dmask
+  - dnslink
+  - domainkey
   - dotenv
+  - doujin
   - enableexit
   - extglob
+  - fmask
+  - frontmost
   - ghcman
   - ghcup
   - gnumake
+  - googlecode
+  - googledomains
+  - googlehosted
   - histappend
   - ignoreboth
   - ignoreeof
   - iohk
+  - iterm
   - jsonfmt
   - kakkun
   - karabiner
@@ -27,44 +52,72 @@ words:
   - lessopen
   - lesspipe
   - libpam
+  - maihama
+  - mdns
   - mktemp
+  - mrmn
   - msys
   - netrc
+  - networkmanager
   - nixfmt
   - nixos
   - nixpkgs
   - nocaseglob
   - nofork
   - npiperelay
+  - nssmdns
   - numtide
-  - Okamoto
+  - nvme
+  - okamoto
+  - pdfding
+  - pids
   - pinentry
   - pkgs
+  - popd
   - poshdotenv
   - psake
   - psscriptanalyzer
   - pueue
+  - pushd
   - pwsh
   - pythonioencoding
+  - resolv
   - ricty
+  - sdhci
   - setsid
+  - setw
   - shellcheck
   - shlvl
   - showdirtystate
+  - signup
   - socat
+  - spacebar
+  - squarespace
   - sshell
   - stdenv
   - substituters
+  - tailnet
   - thefuck
   - treefmt
+  - usbhid
+  - usbip
+  - vfat
+  - virtualisation
   - xcape
+  - xhci
 useGitignore: true
+ignoreWords:
+  - fddo5yuqduqu
+  - skajdjtjjzil7b
+  - WERGWCBwQpV
+ignoreRegExpList:
+  - "[a-zA-Z0-9]{15,}"
 ignorePaths:
-  - lib
-  - .gitmodules
-  - .git
-  - .cspell.json
+  - .cspell.yaml
   - .editorconfig
-  - git/.gitconfig
-  - secret.yaml
+  - .git
+  - .gitmodules
+  - home/git/.gitconfig
+  - home/lib
+  - home/aqua-skk
 enableGlobDot: true
