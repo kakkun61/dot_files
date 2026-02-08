@@ -148,7 +148,16 @@ resource "cloudflare_record" "pdfding" {
   zone_id = var.cloudflare_zone_id
   name    = "pdfding"
   type    = "CNAME"
-  content = "b8e491b3-5f99-453c-9be7-bca4e34ee465.cfargotunnel.com"
+  content = "${cloudflare_zero_trust_tunnel_cloudflared.home.id}.cfargotunnel.com"
+  ttl     = 1
+  proxied = true
+}
+
+resource "cloudflare_record" "argocd" {
+  zone_id = var.cloudflare_zone_id
+  name    = "argocd"
+  type    = "CNAME"
+  content = "${cloudflare_zero_trust_tunnel_cloudflared.home.id}.cfargotunnel.com"
   ttl     = 1
   proxied = true
 }
@@ -323,7 +332,7 @@ resource "cloudflare_record" "google_domainkey" {
 resource "cloudflare_zero_trust_tunnel_cloudflared" "home" {
   account_id = var.cloudflare_account_id
   name       = var.tunnel_name
-  secret     = base64encode("")
+  secret     = ""
 
   # 既存Tunnelの場合、secretの変更を無視
   lifecycle {
@@ -338,6 +347,11 @@ resource "cloudflare_zero_trust_tunnel_cloudflared_config" "home" {
   config {
     ingress_rule {
       hostname = "pdfding.${var.domain}"
+      service  = "http://localhost:80"
+    }
+
+    ingress_rule {
+      hostname = "argocd.${var.domain}"
       service  = "http://localhost:80"
     }
 

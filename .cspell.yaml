@@ -98,6 +98,7 @@ words:
   - substituters
   - tailnet
   - thefuck
+  - traefik
   - treefmt
   - usbhid
   - usbip
@@ -116,6 +117,7 @@ ignorePaths:
   - .cspell.yaml
   - .editorconfig
   - .git
+  - .gitignore
   - .gitmodules
   - home/git/.gitconfig
   - home/lib
