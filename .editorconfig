@@ -20,8 +20,9 @@ indent_style = tab
 indent_size = 2
 tab_width = 2
 
-[*/kana-rule.conf]
-charset = unset
-
 [*.json]
 indent_size = 2
+
+[home/aqua-skk/kana-rule.conf]
+charset = euc-jp
+trim_trailing_whitespace = false
