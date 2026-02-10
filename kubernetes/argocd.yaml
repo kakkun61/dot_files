@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd
+---
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: argocd
+  namespace: kube-system
+spec:
+  repo: https://argoproj.github.io/argo-helm
+  chart: argo-cd
+  version: "9.4.1"
+  targetNamespace: argocd
+  valuesContent: |-
+    # ドキュメントは https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd
+    config:
+      params:
+        # リバースプロキシーを使用するので TLS は要らない
+        server.insecure: "true"
+    server:
+      nodeSelector:
+        kubernetes.io/hostname: gmk
+---
+# オリジナルは https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#ingressroute-crd
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: argocd-server
+  namespace: argocd
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`argocd.kakkun61.com`)
+      priority: 10
+      services:
+        - name: argocd-server
+          port: 80
+    - kind: Rule
+      match: Host(`argocd.kakkun61.com`) && Header(`Content-Type`, `application/grpc`)
+      priority: 11
+      services:
+        - name: argocd-server
+          port: 80
+          scheme: h2c

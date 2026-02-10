@@ -1,32 +1,17 @@
-# Dot Files
+# 計算リソース設定集
 
-## Home Manager
+## home
 
-Use this repository directly as a flake for Home Manager when you don't need a private flake.
+ドットファイルとか Home Manager の設定とか
 
-When you need a private flake, use a template from this repository to create your own configuration.
+## kubernetes
 
-```console
-$ cd ~/.config/home-manager
-$ nix flake init --template github:kakkun61/dot_files
-$ # edit flake.nix and home.nix
-$ make
-```
+おうちクラスターの設定とか
 
-## PowerShell
+## nixos
 
-```console
-> Move-Item $PROFILE "$PROFILE.back"
-> $dotFiles = 'path\to\this\repo'
-> Copy-Item "$dotFiles\pwsh\profile.example.ps1" $PROFILE
-> # edit $PROFILE
-```
+Nix OS の設定とか
 
-## diff-highlight
+## terraform
 
-```console
-$ cd ./lib/git/contrib/diff-highlight
-$ make PERL_PATH=$(which perl)
-$ mkdir -p ~/.local/bin
-$ install diff-highlight ~/.local/bin
-```
+Cloudflare Tunnel とか DNS とか
