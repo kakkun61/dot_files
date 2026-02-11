@@ -142,6 +142,7 @@
         merge.conflictStyle = "diff3";
         pull.ff = "only";
         push.default = "upstream";
+        rebase.autoSquash = true;
         user = {
           email = "kazuki.okamoto@kakkun61.com";
           name = "Kazuki Okamoto (岡本和樹)";
