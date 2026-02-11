@@ -16,6 +16,7 @@
     # https://docs.k3s.io/ja/installation/requirements#オペレーティングシステム
     networking.firewall = {
       allowedTCPPorts = [ 6443 ];
+      allowedUDPPorts = [ 8472 ]; # Flannel VXLAN
       extraCommands = ''
         iptables -A INPUT -s 10.42.0.0/16 -j ACCEPT
         iptables -A INPUT -s 10.43.0.0/16 -j ACCEPT
