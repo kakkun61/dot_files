@@ -21,7 +21,7 @@ spec:
         server.insecure: "true"
     server:
       nodeSelector:
-        kubernetes.io/hostname: gmk
+        kubernetes.io/arch: amd64
 ---
 # オリジナルは https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#ingressroute-crd
 apiVersion: traefik.io/v1alpha1
