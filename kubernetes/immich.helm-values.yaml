@@ -5,7 +5,7 @@ controllers:
     containers:
       main:
         image:
-          tag: "v2.6.3"
+          tag: "v2.7.5"
         env:
           TZ: "Asia/Tokyo"
           DB_HOSTNAME: database-rw
@@ -70,3 +70,18 @@ server:
             - path: "/"
               service:
                 identifier: main
+
+machine-learning:
+  controllers:
+    main:
+      pod:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+                - matchExpressions:
+                    - key: kubernetes.io/arch
+                      operator: In
+                      values:
+                        - amd64
+                        - arm64
