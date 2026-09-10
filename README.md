@@ -1,5 +1,9 @@
 # 計算リソース設定集
 
+# coding-agent
+
+コーディングエージェントの（今は）skill だけ
+
 ## home
 
 ドットファイルとか Home Manager の設定とか
